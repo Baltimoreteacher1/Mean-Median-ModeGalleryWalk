@@ -1130,6 +1130,107 @@ button{touch-action:manipulation}
   border-color:var(--sage);
 }
 
+
+.curator-number-line{
+  margin:.75rem 0 .8rem;
+  padding:.85rem;
+  border:1.5px dashed var(--line);
+  border-radius:16px;
+  background:#F8FAFB;
+}
+
+.curator-number-line-title{
+  font-family:'Space Mono',monospace;
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.1em;
+  color:var(--muted);
+  text-transform:uppercase;
+  margin-bottom:.55rem;
+}
+
+.line-input-row{
+  display:flex;
+  align-items:center;
+  gap:.45rem;
+  flex-wrap:wrap;
+}
+
+.line-slot{
+  width:72px;
+  border:2px solid var(--line);
+  border-radius:12px;
+  padding:.48rem .45rem;
+  text-align:center;
+  font-family:'Space Mono',monospace;
+  font-size:.84rem;
+  font-weight:800;
+  color:var(--navy);
+  background:#fff;
+  outline:none;
+}
+
+.line-slot:focus{
+  border-color:var(--teal);
+}
+
+.line-arrow{
+  color:var(--muted);
+  font-weight:900;
+}
+
+.curator-calc-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:.7rem;
+  margin-top:.75rem;
+}
+
+.curator-calc-row{
+  border:1.5px solid var(--line);
+  background:#fff;
+  border-radius:16px;
+  padding:.8rem;
+}
+
+.curator-calc-row h4{
+  color:var(--navy);
+  font-size:.9rem;
+  font-weight:900;
+  margin-bottom:.3rem;
+}
+
+.curator-guidance{
+  display:none;
+  margin-top:.45rem;
+  padding:.65rem .75rem;
+  border-radius:12px;
+  background:#FFF8E8;
+  border:1.5px solid #E8CB7A;
+  color:#59451B;
+  font-size:.82rem;
+  font-weight:800;
+  line-height:1.45;
+}
+
+.curator-guidance.visible{
+  display:block;
+}
+
+.unlock-box{
+  display:none;
+  margin-top:.85rem;
+  border:1.5px solid #C7DDE0;
+  border-radius:16px;
+  padding:.85rem;
+  background:linear-gradient(135deg,rgba(52,126,131,.12),rgba(241,196,83,.10)),#fff;
+}
+
+.unlock-box.visible{
+  display:block;
+  animation:fade .2s ease;
+}
+
 /* WRITING */
 
 .scenario{
@@ -1973,7 +2074,7 @@ textarea:focus{border-color:var(--teal)}
     </div>
 
     <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Curator Choice 4</div><div class="level">Challenge</div></div>
+      <div class="problem-top"><div class="problem-tag">Curator Choice 4</div><div class="level">Multi-Step Challenge</div></div>
       <div class="art-box">
         <svg class="art-svg" viewBox="0 0 260 140">
           <rect x="45" y="78" width="45" height="36" fill="#DFF2EE" stroke="#387F84" stroke-width="3"/>
@@ -1986,9 +2087,74 @@ textarea:focus{border-color:var(--teal)}
         </svg>
         <div class="art-caption">OUTLIER MANSION</div>
       </div>
-      <h3>House prices include one mansion that is much more expensive than the others. Which measure may better show the middle home price?</h3>
-      <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator4" placeholder="type answer"><button class="check-btn" onclick="checkText('curator4','median','curator4fb','curator')">Check</button><span class="feedback" id="curator4fb"></span></div>
-      <div class="small-note">Clue: Think about whether one value is very different from the others.</div>
+
+      <h3>House prices, in thousands of dollars: 180, 190, 200, 210, 720.</h3>
+      <p class="small-note">First enter the prices on the line from least to greatest. Then calculate the mean, median, and mode before choosing the best measure.</p>
+
+      <div class="curator-number-line">
+        <div class="curator-number-line-title">Step 1 · Put the data on the line</div>
+        <div class="line-input-row">
+          <input class="line-slot" id="line1" inputmode="numeric" aria-label="first ordered value">
+          <span class="line-arrow">→</span>
+          <input class="line-slot" id="line2" inputmode="numeric" aria-label="second ordered value">
+          <span class="line-arrow">→</span>
+          <input class="line-slot" id="line3" inputmode="numeric" aria-label="third ordered value">
+          <span class="line-arrow">→</span>
+          <input class="line-slot" id="line4" inputmode="numeric" aria-label="fourth ordered value">
+          <span class="line-arrow">→</span>
+          <input class="line-slot" id="line5" inputmode="numeric" aria-label="fifth ordered value">
+          <button class="check-btn" onclick="checkCuratorLine()">Check Line</button>
+          <span class="feedback" id="curatorLineFb"></span>
+        </div>
+        <div class="curator-guidance" id="curatorLineHelp">Put the prices from smallest to largest. Start with the lowest price and end with the highest price.</div>
+      </div>
+
+      <div class="curator-calc-grid">
+        <div class="curator-calc-row">
+          <h4>Step 2A · Calculate the mean</h4>
+          <div class="input-row">
+            <span class="answer-label">Mean =</span>
+            <input class="answer-input" type="number" id="curatorMean" step="0.1">
+            <button class="check-btn" onclick="checkCuratorMeasure('mean')">Check Mean</button>
+            <span class="feedback" id="curatorMeanFb"></span>
+          </div>
+          <div class="curator-guidance" id="curatorMeanHelp">To calculate the mean, add all 5 prices. Then divide the total by 5. Keep your answer in thousands of dollars.</div>
+        </div>
+
+        <div class="curator-calc-row">
+          <h4>Step 2B · Calculate the median</h4>
+          <div class="input-row">
+            <span class="answer-label">Median =</span>
+            <input class="answer-input" type="number" id="curatorMedian" step="0.1">
+            <button class="check-btn" onclick="checkCuratorMeasure('median')">Check Median</button>
+            <span class="feedback" id="curatorMedianFb"></span>
+          </div>
+          <div class="curator-guidance" id="curatorMedianHelp">To calculate the median, use your ordered line. There are 5 values, so the median is the value in the center position.</div>
+        </div>
+
+        <div class="curator-calc-row">
+          <h4>Step 2C · Identify the mode</h4>
+          <div class="input-row">
+            <span class="answer-label">Mode =</span>
+            <input class="answer-input" type="text" id="curatorMode" placeholder="type answer">
+            <button class="check-btn" onclick="checkCuratorMeasure('mode')">Check Mode</button>
+            <span class="feedback" id="curatorModeFb"></span>
+          </div>
+          <div class="curator-guidance" id="curatorModeHelp">To identify the mode, tally each price. If no price repeats more than the others, type “no mode.”</div>
+        </div>
+      </div>
+
+      <div class="unlock-box" id="curatorBestBox">
+        <h4>Step 3 · Now choose the best measure</h4>
+        <p class="small-note">One mansion is much more expensive than the other homes. Which measure may better show the middle home price?</p>
+        <div class="input-row">
+          <span class="answer-label">Best measure:</span>
+          <input class="answer-input" type="text" id="curator4" placeholder="type answer">
+          <button class="check-btn" onclick="checkText('curator4','median','curator4fb','curator')">Check</button>
+          <span class="feedback" id="curator4fb"></span>
+        </div>
+        <div class="curator-guidance" id="curatorBestHelp">Think about whether one extreme value changes the average. Then decide which measure better represents the middle home price.</div>
+      </div>
     </div>
   </div>
 
@@ -2340,6 +2506,113 @@ function flipCard(card){
         flipped = [];
       }, 850);
     }
+  }
+}
+
+
+const curatorChallengeState = {
+  line:false,
+  mean:false,
+  median:false,
+  mode:false
+};
+
+function setGuidance(id, show){
+  const el = document.getElementById(id);
+  if(!el) return;
+  if(show) el.classList.add("visible");
+  else el.classList.remove("visible");
+}
+
+function checkCuratorLine(){
+  const expected = [180,190,200,210,720];
+  const values = [1,2,3,4,5].map(n => Number(document.getElementById("line" + n).value));
+  const fb = document.getElementById("curatorLineFb");
+
+  if(values.some(v => Number.isNaN(v))){
+    fb.textContent = "Enter all 5 prices first.";
+    fb.className = "feedback incorrect";
+    setGuidance("curatorLineHelp", true);
+    return;
+  }
+
+  const correct = values.every((v,i) => v === expected[i]);
+  if(correct){
+    curatorChallengeState.line = true;
+    fb.textContent = "Correct";
+    fb.className = "feedback correct";
+    setGuidance("curatorLineHelp", false);
+    checkCuratorUnlock();
+  }else{
+    curatorChallengeState.line = false;
+    fb.textContent = "Not yet. Use the guidance and redo it.";
+    fb.className = "feedback incorrect";
+    setGuidance("curatorLineHelp", true);
+  }
+}
+
+function checkCuratorMeasure(kind){
+  const configs = {
+    mean:{input:"curatorMean", feedback:"curatorMeanFb", help:"curatorMeanHelp", answer:300, tolerance:.1},
+    median:{input:"curatorMedian", feedback:"curatorMedianFb", help:"curatorMedianHelp", answer:200, tolerance:.1},
+    mode:{input:"curatorMode", feedback:"curatorModeFb", help:"curatorModeHelp", answer:"no mode"}
+  };
+
+  const cfg = configs[kind];
+  const input = document.getElementById(cfg.input);
+  const fb = document.getElementById(cfg.feedback);
+
+  if(kind === "mode"){
+    const value = normalizeText(input.value);
+    if(!value){
+      fb.textContent = "Type an answer first.";
+      fb.className = "feedback incorrect";
+      setGuidance(cfg.help, true);
+      return;
+    }
+
+    if(["no mode","none","no"].includes(value)){
+      curatorChallengeState.mode = true;
+      fb.textContent = "Correct";
+      fb.className = "feedback correct";
+      setGuidance(cfg.help, false);
+      checkCuratorUnlock();
+    }else{
+      curatorChallengeState.mode = false;
+      fb.textContent = "Not yet. Use the guidance and redo it.";
+      fb.className = "feedback incorrect";
+      setGuidance(cfg.help, true);
+    }
+    return;
+  }
+
+  const value = Number(input.value);
+  if(Number.isNaN(value)){
+    fb.textContent = "Type an answer first.";
+    fb.className = "feedback incorrect";
+    setGuidance(cfg.help, true);
+    return;
+  }
+
+  if(Math.abs(value - cfg.answer) <= cfg.tolerance){
+    curatorChallengeState[kind] = true;
+    fb.textContent = "Correct";
+    fb.className = "feedback correct";
+    setGuidance(cfg.help, false);
+    checkCuratorUnlock();
+  }else{
+    curatorChallengeState[kind] = false;
+    fb.textContent = "Not yet. Use the guidance and redo it.";
+    fb.className = "feedback incorrect";
+    setGuidance(cfg.help, true);
+  }
+}
+
+function checkCuratorUnlock(){
+  const box = document.getElementById("curatorBestBox");
+  if(!box) return;
+  if(curatorChallengeState.line && curatorChallengeState.mean && curatorChallengeState.median && curatorChallengeState.mode){
+    box.classList.add("visible");
   }
 }
 
