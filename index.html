@@ -1909,11 +1909,11 @@ textarea:focus{border-color:var(--teal)}
         <p>Now you decide which measure makes sense for the real-world situation.</p>
       </div>
       <div class="side-card">
-        <div class="side-title">CHOICE CLUES</div>
+        <div class="side-title">CURATOR THINKING</div>
         <ul>
-          <li>⚖️ Is it asking for an average?</li>
-          <li>🎯 Is it asking for a middle value?</li>
-          <li>🏆 Is it asking for the most common value?</li>
+          <li>🔎 Read the situation carefully.</li>
+          <li>🧠 Decide what the question is asking for.</li>
+          <li>✍️ Type the measure that fits best.</li>
         </ul>
       </div>
     </div>
@@ -1934,7 +1934,7 @@ textarea:focus{border-color:var(--teal)}
       </div>
       <h3>A coach wants to know the typical number of points scored per game across the season.</h3>
       <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator1" placeholder="type answer"><button class="check-btn" onclick="checkText('curator1','mean','curator1fb','curator')">Check</button><span class="feedback" id="curator1fb"></span></div>
-      <div class="small-note">Clue: Decide whether the question is asking for an average, a middle value, or the most common value.</div>
+      <div class="small-note">Clue: Read the situation carefully and decide what kind of information is needed.</div>
     </div>
 
     <div class="problem-card">
@@ -1951,7 +1951,7 @@ textarea:focus{border-color:var(--teal)}
       </div>
       <h3>A store wants to know which shirt size was sold the most.</h3>
       <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator2" placeholder="type answer"><button class="check-btn" onclick="checkText('curator2','mode','curator2fb','curator')">Check</button><span class="feedback" id="curator2fb"></span></div>
-      <div class="small-note">Clue: Decide whether the question is asking for an average, a middle value, or the most common value.</div>
+      <div class="small-note">Clue: Read the situation carefully and decide what kind of information is needed.</div>
     </div>
 
     <div class="problem-card">
@@ -1969,7 +1969,7 @@ textarea:focus{border-color:var(--teal)}
       </div>
       <h3>A teacher wants the middle score after arranging all scores from lowest to highest.</h3>
       <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator3" placeholder="type answer"><button class="check-btn" onclick="checkText('curator3','median','curator3fb','curator')">Check</button><span class="feedback" id="curator3fb"></span></div>
-      <div class="small-note">Clue: Decide whether the question is asking for an average, a middle value, or the most common value.</div>
+      <div class="small-note">Clue: Read the situation carefully and decide what kind of information is needed.</div>
     </div>
 
     <div class="problem-card">
@@ -1988,25 +1988,10 @@ textarea:focus{border-color:var(--teal)}
       </div>
       <h3>House prices include one mansion that is much more expensive than the others. Which measure may better show the middle home price?</h3>
       <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator4" placeholder="type answer"><button class="check-btn" onclick="checkText('curator4','median','curator4fb','curator')">Check</button><span class="feedback" id="curator4fb"></span></div>
-      <div class="small-note">Clue: Think about whether one extreme value would affect the average.</div>
+      <div class="small-note">Clue: Think about whether one value is very different from the others.</div>
     </div>
   </div>
 
-  <div class="section-label"><span class="label">Live Lab</span><h2>Data Calculator</h2></div>
-  <div class="card">
-    <div class="card-title">Enter your own data set</div>
-    <p>Type numbers separated by commas. Then calculate mean, median, and mode.</p>
-    <div class="input-row">
-      <input class="answer-input" style="width:min(100%,430px)" type="text" id="customData" value="4, 7, 2, 9, 7, 3, 7">
-      <button class="primary-btn" onclick="calculateCustom()">Calculate</button>
-    </div>
-    <div class="grid-3" style="margin-top:1rem">
-      <div class="card" style="box-shadow:none;background:#EFF8F7"><div class="card-title">Mean</div><p id="customMean">—</p></div>
-      <div class="card" style="box-shadow:none;background:#FFF3EE"><div class="card-title">Median</div><p id="customMedian">—</p></div>
-      <div class="card" style="box-shadow:none;background:#F4EEFA"><div class="card-title">Mode</div><p id="customMode">—</p></div>
-    </div>
-    <div class="small-note" id="customSteps"></div>
-  </div>
 </section>
 
 <!-- FINALE -->
