@@ -1299,7 +1299,7 @@ textarea:focus{border-color:var(--teal)}
           <rect x="165" y="58" width="48" height="82" rx="7" fill="#387F84"/>
           <rect x="230" y="32" width="48" height="108" rx="7" fill="#387F84"/>
           <line x1="28" y1="86" x2="292" y2="86" stroke="#F2C15B" stroke-width="5" stroke-dasharray="9 7"/>
-          <text x="160" y="165" text-anchor="middle" font-size="16" font-family="Nunito" font-weight="900" fill="#16283B">Mean = Average</text>
+          <text x="160" y="165" text-anchor="middle" font-size="16" font-family="Nunito" font-weight="900" fill="#16283B">Mean: Average</text>
         </svg>
       </div>
       <h3>Mean</h3>
@@ -1316,7 +1316,7 @@ textarea:focus{border-color:var(--teal)}
           <circle cx="160" cy="76" r="25" fill="#F2C15B" stroke="#16283B" stroke-width="5"/>
           <circle cx="205" cy="76" r="23" fill="#FDE8DC" stroke="#D96B48" stroke-width="5"/>
           <circle cx="250" cy="76" r="23" fill="#FDE8DC" stroke="#D96B48" stroke-width="5"/>
-          <text x="160" y="165" text-anchor="middle" font-size="16" font-family="Nunito" font-weight="900" fill="#16283B">Median = Middle</text>
+          <text x="160" y="165" text-anchor="middle" font-size="16" font-family="Nunito" font-weight="900" fill="#16283B">Median: Middle</text>
         </svg>
       </div>
       <h3>Median</h3>
@@ -1332,7 +1332,7 @@ textarea:focus{border-color:var(--teal)}
           <rect x="188" y="50" width="48" height="90" rx="9" fill="#6B4FA0"/>
           <rect x="258" y="105" width="38" height="35" rx="9" fill="#6B4FA0"/>
           <path d="M202 36 L213 57 L237 61 L219 77 L224 100 L202 89 L181 100 L186 77 L168 61 L192 57 Z" fill="#F2C15B" stroke="#16283B" stroke-width="3"/>
-          <text x="160" y="165" text-anchor="middle" font-size="16" font-family="Nunito" font-weight="900" fill="#16283B">Mode = Most Often</text>
+          <text x="160" y="165" text-anchor="middle" font-size="16" font-family="Nunito" font-weight="900" fill="#16283B">Mode: Most Often</text>
         </svg>
       </div>
       <h3>Mode</h3>
@@ -1342,7 +1342,7 @@ textarea:focus{border-color:var(--teal)}
 
   <div class="card">
     <div class="card-title">Museum Passport</div>
-    <p>Earn stamps as you complete each section. Your progress will save on this device until you reset it.</p>
+    <p>Student version: visible answers have been removed. Use the check buttons to see whether your answer is correct.</p>
     <div class="badge-row">
       <span class="badge" id="badge-mean">🖼️ Average Wing</span>
       <span class="badge" id="badge-median">🎯 Median Wing</span>
@@ -1401,9 +1401,9 @@ textarea:focus{border-color:var(--teal)}
       </div>
     </div>
     <div class="math-row">
-      <span class="math-chip">2 + 4 + 6 + 8 = 20</span>
-      <span class="math-chip">20 ÷ 4 = 5</span>
-      <span class="math-chip">Mean = 5</span>
+      <span class="math-chip">Add the values.</span>
+      <span class="math-chip">Count the values.</span>
+      <span class="math-chip">Divide to find the mean.</span>
     </div>
   </div>
 
@@ -1411,14 +1411,14 @@ textarea:focus{border-color:var(--teal)}
   <div class="card">
     <p>The dashed gold line marks the average height of the bars.</p>
     <div class="bar-gallery">
-      <div class="avg-line"><span>Average = 6</span></div>
+      <div class="avg-line"><span>Average line</span></div>
       <div class="bar-column"><div class="bar mean" style="height:34px;">2</div><div class="bar-label">G1</div></div>
       <div class="bar-column"><div class="bar mean" style="height:68px;">4</div><div class="bar-label">G2</div></div>
       <div class="bar-column"><div class="bar mean" style="height:102px;">6</div><div class="bar-label">G3</div></div>
       <div class="bar-column"><div class="bar mean" style="height:136px;">8</div><div class="bar-label">G4</div></div>
       <div class="bar-column"><div class="bar mean" style="height:170px;">10</div><div class="bar-label">G5</div></div>
     </div>
-    <div class="small-note">Data: 2, 4, 6, 8, 10 → Sum = 30 → Count = 5 → Mean = 6</div>
+    <div class="small-note">Use the bars to estimate and then calculate the average.</div>
   </div>
 
   <div class="section-label"><span class="label">Practice</span><h2>Average Exhibit Problems</h2></div>
@@ -1440,7 +1440,7 @@ textarea:focus{border-color:var(--teal)}
       <h3>Number of books read: 3, 7, 5, 9, 1. What is the mean?</h3>
       <div class="data-row"><span class="data-chip">3</span><span class="data-chip">7</span><span class="data-chip">5</span><span class="data-chip">9</span><span class="data-chip">1</span></div>
       <button class="show-btn" onclick="toggleHint('hint-m1')">Show Hint</button>
-      <div class="hint-box" id="hint-m1">Add: 3 + 7 + 5 + 9 + 1 = 25. Count: 5 values. Divide: 25 ÷ 5.</div>
+      <div class="hint-box" id="hint-m1">Add all the values. Count how many values are in the set. Then divide the sum by the count.</div>
       <div class="input-row"><span class="answer-label">Mean =</span><input class="answer-input" type="number" id="mean1"><button class="check-btn" onclick="checkNumber('mean1',5,'mean1fb','mean')">Check</button><span class="feedback" id="mean1fb"></span></div>
     </div>
 
@@ -1461,7 +1461,7 @@ textarea:focus{border-color:var(--teal)}
       <h3>Goals scored in 4 games: 2, 6, 4, 8. What is the mean?</h3>
       <div class="data-row"><span class="data-chip">2</span><span class="data-chip">6</span><span class="data-chip">4</span><span class="data-chip">8</span></div>
       <button class="show-btn" onclick="toggleHint('hint-m2')">Show Hint</button>
-      <div class="hint-box" id="hint-m2">Add: 2 + 6 + 4 + 8 = 20. Count: 4 values. Divide: 20 ÷ 4.</div>
+      <div class="hint-box" id="hint-m2">Add all the values. Count how many values are in the set. Then divide the sum by the count.</div>
       <div class="input-row"><span class="answer-label">Mean =</span><input class="answer-input" type="number" id="mean2"><button class="check-btn" onclick="checkNumber('mean2',5,'mean2fb','mean')">Check</button><span class="feedback" id="mean2fb"></span></div>
     </div>
 
@@ -1482,7 +1482,7 @@ textarea:focus{border-color:var(--teal)}
       <h3>Quiz scores: 80, 90, 70, 100. What is the mean score?</h3>
       <div class="data-row"><span class="data-chip">80</span><span class="data-chip">90</span><span class="data-chip">70</span><span class="data-chip">100</span></div>
       <button class="show-btn" onclick="toggleHint('hint-m3')">Show Hint</button>
-      <div class="hint-box" id="hint-m3">Add all scores, then divide by 4.</div>
+      <div class="hint-box" id="hint-m3">Add all the scores. Then divide by the number of scores.</div>
       <div class="input-row"><span class="answer-label">Mean =</span><input class="answer-input" type="number" id="mean3"><button class="check-btn" onclick="checkNumber('mean3',85,'mean3fb','mean')">Check</button><span class="feedback" id="mean3fb"></span></div>
     </div>
 
@@ -1504,7 +1504,7 @@ textarea:focus{border-color:var(--teal)}
       <h3>A student scored 82, 91, 78, and 85. What 5th score is needed for a mean of 85?</h3>
       <div class="data-row"><span class="data-chip">82</span><span class="data-chip">91</span><span class="data-chip">78</span><span class="data-chip">85</span><span class="data-chip">?</span></div>
       <button class="show-btn" onclick="toggleHint('hint-m4')">Show Hint</button>
-      <div class="hint-box" id="hint-m4">Target total = 85 × 5 = 425. Current total = 336. Missing score = 425 - 336.</div>
+      <div class="hint-box" id="hint-m4">Think backward: target mean × number of tests gives the total needed. Compare that total to the current total.</div>
       <div class="input-row"><span class="answer-label">5th score =</span><input class="answer-input" type="number" id="mean4"><button class="check-btn" onclick="checkNumber('mean4',89,'mean4fb','mean')">Check</button><span class="feedback" id="mean4fb"></span></div>
     </div>
   </div>
@@ -1542,7 +1542,7 @@ textarea:focus{border-color:var(--teal)}
       <div class="number-line">
         <div class="num-card crossed">3</div><div class="num-card crossed">7</div><div class="num-card center">12</div><div class="num-card crossed">15</div><div class="num-card crossed">20</div>
       </div>
-      <div class="math-chip">Median = 12</div>
+      <div class="math-chip">Find the middle value.</div>
     </div>
     <div class="card">
       <div class="card-title">Even Number of Values</div>
@@ -1550,7 +1550,7 @@ textarea:focus{border-color:var(--teal)}
       <div class="number-line">
         <div class="num-card crossed">4</div><div class="num-card center">8</div><div class="num-card center">10</div><div class="num-card crossed">14</div>
       </div>
-      <div class="math-chip">(8 + 10) ÷ 2 = 9</div>
+      <div class="math-chip">Average the two middle values.</div>
     </div>
   </div>
 
@@ -1565,7 +1565,7 @@ textarea:focus{border-color:var(--teal)}
         <button class="sort-item" onclick="moveSortItem(this)">10</button>
         <button class="sort-item" onclick="moveSortItem(this)">22</button>
       </div>
-      <div class="small-note">Goal: 6, 10, 14, 18, 22</div>
+      <div class="small-note">Goal: move the numbers from least to greatest.</div>
     </div>
     <div class="drop-zone">
       <h3>Your ordered data</h3>
@@ -1596,7 +1596,7 @@ textarea:focus{border-color:var(--teal)}
       <h3>Ages in a club: 11, 14, 12, 13, 10. What is the median?</h3>
       <div class="data-row"><span class="data-chip">11</span><span class="data-chip">14</span><span class="data-chip">12</span><span class="data-chip">13</span><span class="data-chip">10</span></div>
       <button class="show-btn" onclick="toggleHint('hint-med1')">Show Hint</button>
-      <div class="hint-box" id="hint-med1">Order: 10, 11, 12, 13, 14. The middle is 12.</div>
+      <div class="hint-box" id="hint-med1">Put the values in order from least to greatest. Then look for the middle value.</div>
       <div class="input-row"><span class="answer-label">Median =</span><input class="answer-input" type="number" id="median1"><button class="check-btn" onclick="checkNumber('median1',12,'median1fb','median')">Check</button><span class="feedback" id="median1fb"></span></div>
     </div>
 
@@ -1616,7 +1616,7 @@ textarea:focus{border-color:var(--teal)}
       <h3>Test scores: 88, 72, 95, 81, 77, 90. What is the median?</h3>
       <div class="data-row"><span class="data-chip">88</span><span class="data-chip">72</span><span class="data-chip">95</span><span class="data-chip">81</span><span class="data-chip">77</span><span class="data-chip">90</span></div>
       <button class="show-btn" onclick="toggleHint('hint-med2')">Show Hint</button>
-      <div class="hint-box" id="hint-med2">Order: 72, 77, 81, 88, 90, 95. Two middles: 81 and 88. Average them.</div>
+      <div class="hint-box" id="hint-med2">Put the values in order. Because there are two middle values, average those two middle values.</div>
       <div class="input-row"><span class="answer-label">Median =</span><input class="answer-input" type="number" step=".1" id="median2"><button class="check-btn" onclick="checkNumber('median2',84.5,'median2fb','median',.1)">Check</button><span class="feedback" id="median2fb"></span></div>
     </div>
 
@@ -1638,7 +1638,7 @@ textarea:focus{border-color:var(--teal)}
       <h3>Plant heights: 5, 12, 8, 3, 15, 9, 6. What is the median?</h3>
       <div class="data-row"><span class="data-chip">5</span><span class="data-chip">12</span><span class="data-chip">8</span><span class="data-chip">3</span><span class="data-chip">15</span><span class="data-chip">9</span><span class="data-chip">6</span></div>
       <button class="show-btn" onclick="toggleHint('hint-med3')">Show Hint</button>
-      <div class="hint-box" id="hint-med3">Order: 3, 5, 6, 8, 9, 12, 15. The middle is 8.</div>
+      <div class="hint-box" id="hint-med3">Put the values in order from least to greatest. Then cross off values from both ends until you reach the middle.</div>
       <div class="input-row"><span class="answer-label">Median =</span><input class="answer-input" type="number" id="median3"><button class="check-btn" onclick="checkNumber('median3',8,'median3fb','median')">Check</button><span class="feedback" id="median3fb"></span></div>
     </div>
 
@@ -1658,7 +1658,7 @@ textarea:focus{border-color:var(--teal)}
       <h3>Homework minutes: 45, 30, 60, 25, 50, 40. What is the median?</h3>
       <div class="data-row"><span class="data-chip">45</span><span class="data-chip">30</span><span class="data-chip">60</span><span class="data-chip">25</span><span class="data-chip">50</span><span class="data-chip">40</span></div>
       <button class="show-btn" onclick="toggleHint('hint-med4')">Show Hint</button>
-      <div class="hint-box" id="hint-med4">Order: 25, 30, 40, 45, 50, 60. Two middles: 40 and 45. Average them.</div>
+      <div class="hint-box" id="hint-med4">Put the values in order. Because there are two middle values, average those two middle values.</div>
       <div class="input-row"><span class="answer-label">Median =</span><input class="answer-input" type="number" step=".1" id="median4"><button class="check-btn" onclick="checkNumber('median4',42.5,'median4fb','median',.1)">Check</button><span class="feedback" id="median4fb"></span></div>
     </div>
   </div>
@@ -1705,7 +1705,7 @@ textarea:focus{border-color:var(--teal)}
       <p>2 votes</p>
     </div>
 
-    <div class="vote-card winner">
+    <div class="vote-card">
       <h3>Chips</h3>
       <div class="snack-art">
         <svg viewBox="0 0 100 80" aria-hidden="true">
@@ -1720,7 +1720,7 @@ textarea:focus{border-color:var(--teal)}
         </svg>
       </div>
       <div class="vote-stack"><span class="vote-token">🥔</span><span class="vote-token">🥔</span><span class="vote-token">🥔</span><span class="vote-token">🥔</span><span class="vote-token">🥔</span></div>
-      <p>5 votes → Mode</p>
+      <p>Count the votes</p>
     </div>
 
     <div class="vote-card">
@@ -1757,9 +1757,9 @@ textarea:focus{border-color:var(--teal)}
 
   <div class="section-label"><span class="label">Cases</span><h2>Mode Can Look Different</h2></div>
   <div class="grid-3">
-    <div class="card"><div class="card-title">One Mode</div><p>1, 2, <strong style="color:var(--purple)">3, 3, 3</strong>, 4, 5</p><div class="math-chip">Mode = 3</div></div>
-    <div class="card"><div class="card-title">Two Modes</div><p>1, <strong style="color:var(--purple)">2, 2</strong>, 3, <strong style="color:var(--purple)">4, 4</strong>, 5</p><div class="math-chip">Modes = 2 and 4</div></div>
-    <div class="card"><div class="card-title">No Mode</div><p>1, 2, 3, 4, 5</p><div class="math-chip">No repeats</div></div>
+    <div class="card"><div class="card-title">One Mode</div><p>1, 2, <strong style="color:var(--purple)">3, 3, 3</strong>, 4, 5</p><div class="math-chip">Which value repeats most?</div></div>
+    <div class="card"><div class="card-title">Two Modes</div><p>1, <strong style="color:var(--purple)">2, 2</strong>, 3, <strong style="color:var(--purple)">4, 4</strong>, 5</p><div class="math-chip">Which values tie?</div></div>
+    <div class="card"><div class="card-title">No Mode</div><p>1, 2, 3, 4, 5</p><div class="math-chip">Check for repeats.</div></div>
   </div>
 
   <div class="section-label"><span class="label">Practice</span><h2>Mode Exhibit Problems</h2></div>
@@ -1779,7 +1779,7 @@ textarea:focus{border-color:var(--teal)}
       <h3>Shoe sizes: 7, 8, 6, 8, 9, 8, 7, 6, 8. What is the mode?</h3>
       <div class="data-row"><span class="data-chip">7</span><span class="data-chip">8</span><span class="data-chip">6</span><span class="data-chip">8</span><span class="data-chip">9</span><span class="data-chip">8</span><span class="data-chip">7</span><span class="data-chip">6</span><span class="data-chip">8</span></div>
       <button class="show-btn" onclick="toggleHint('hint-mode1')">Show Hint</button>
-      <div class="hint-box" id="hint-mode1">8 appears 4 times. That is the most.</div>
+      <div class="hint-box" id="hint-mode1">Make a tally for each value. The value with the greatest tally is the mode.</div>
       <div class="input-row"><span class="answer-label">Mode =</span><input class="answer-input" type="number" id="mode1"><button class="check-btn" onclick="checkNumber('mode1',8,'mode1fb','mode')">Check</button><span class="feedback" id="mode1fb"></span></div>
     </div>
 
@@ -1798,7 +1798,7 @@ textarea:focus{border-color:var(--teal)}
       <h3>Push-ups: 15, 20, 15, 30, 20, 15, 25, 10. What is the mode?</h3>
       <div class="data-row"><span class="data-chip">15</span><span class="data-chip">20</span><span class="data-chip">15</span><span class="data-chip">30</span><span class="data-chip">20</span><span class="data-chip">15</span><span class="data-chip">25</span><span class="data-chip">10</span></div>
       <button class="show-btn" onclick="toggleHint('hint-mode2')">Show Hint</button>
-      <div class="hint-box" id="hint-mode2">15 appears 3 times. That is the most.</div>
+      <div class="hint-box" id="hint-mode2">Make a tally for each value. The value with the greatest tally is the mode.</div>
       <div class="input-row"><span class="answer-label">Mode =</span><input class="answer-input" type="number" id="mode2"><button class="check-btn" onclick="checkNumber('mode2',15,'mode2fb','mode')">Check</button><span class="feedback" id="mode2fb"></span></div>
     </div>
 
@@ -1817,7 +1817,7 @@ textarea:focus{border-color:var(--teal)}
       <h3>Colors: red, blue, red, green, red, blue. What is the mode?</h3>
       <div class="data-row"><span class="data-chip">red</span><span class="data-chip">blue</span><span class="data-chip">red</span><span class="data-chip">green</span><span class="data-chip">red</span><span class="data-chip">blue</span></div>
       <button class="show-btn" onclick="toggleHint('hint-mode3')">Show Hint</button>
-      <div class="hint-box" id="hint-mode3">Red appears 3 times, blue appears 2 times, and green appears 1 time.</div>
+      <div class="hint-box" id="hint-mode3">Count how many times each color appears. The color with the greatest count is the mode.</div>
       <div class="input-row"><span class="answer-label">Mode =</span><input class="answer-input" type="text" id="mode3"><button class="check-btn" onclick="checkText('mode3','red','mode3fb','mode')">Check</button><span class="feedback" id="mode3fb"></span></div>
     </div>
 
@@ -1838,7 +1838,7 @@ textarea:focus{border-color:var(--teal)}
       <h3>Quiz scores: 91, 83, 77, 95, 88. Does this data set have a mode?</h3>
       <div class="data-row"><span class="data-chip">91</span><span class="data-chip">83</span><span class="data-chip">77</span><span class="data-chip">95</span><span class="data-chip">88</span></div>
       <button class="show-btn" onclick="toggleHint('hint-mode4')">Show Hint</button>
-      <div class="hint-box" id="hint-mode4">Every value appears one time. Nothing appears more than the others.</div>
+      <div class="hint-box" id="hint-mode4">Check whether any value repeats more than the others. If nothing repeats, there may be no mode.</div>
       <div class="input-row"><span class="answer-label">Answer =</span><input class="answer-input" type="text" id="mode4" placeholder="no mode"><button class="check-btn" onclick="checkText('mode4','no mode','mode4fb','mode')">Check</button><span class="feedback" id="mode4fb"></span></div>
     </div>
   </div>
@@ -1911,9 +1911,9 @@ textarea:focus{border-color:var(--teal)}
       <div class="side-card">
         <div class="side-title">CHOICE CLUES</div>
         <ul>
-          <li>⚖️ Average? Mean.</li>
-          <li>🎯 Middle? Median.</li>
-          <li>🏆 Most common? Mode.</li>
+          <li>⚖️ Is it asking for an average?</li>
+          <li>🎯 Is it asking for a middle value?</li>
+          <li>🏆 Is it asking for the most common value?</li>
         </ul>
       </div>
     </div>
@@ -1933,8 +1933,8 @@ textarea:focus{border-color:var(--teal)}
         <div class="art-caption">COACH DATA</div>
       </div>
       <h3>A coach wants to know the typical number of points scored per game across the season.</h3>
-      <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator1" placeholder="mean"><button class="check-btn" onclick="checkText('curator1','mean','curator1fb','curator')">Check</button><span class="feedback" id="curator1fb"></span></div>
-      <div class="small-note">Clue: “Typical per game” often means the average.</div>
+      <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator1" placeholder="type answer"><button class="check-btn" onclick="checkText('curator1','mean','curator1fb','curator')">Check</button><span class="feedback" id="curator1fb"></span></div>
+      <div class="small-note">Clue: Decide whether the question is asking for an average, a middle value, or the most common value.</div>
     </div>
 
     <div class="problem-card">
@@ -1950,8 +1950,8 @@ textarea:focus{border-color:var(--teal)}
         <div class="art-caption">STORE DISPLAY</div>
       </div>
       <h3>A store wants to know which shirt size was sold the most.</h3>
-      <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator2" placeholder="mode"><button class="check-btn" onclick="checkText('curator2','mode','curator2fb','curator')">Check</button><span class="feedback" id="curator2fb"></span></div>
-      <div class="small-note">Clue: “Most sold” means most common.</div>
+      <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator2" placeholder="type answer"><button class="check-btn" onclick="checkText('curator2','mode','curator2fb','curator')">Check</button><span class="feedback" id="curator2fb"></span></div>
+      <div class="small-note">Clue: Decide whether the question is asking for an average, a middle value, or the most common value.</div>
     </div>
 
     <div class="problem-card">
@@ -1968,8 +1968,8 @@ textarea:focus{border-color:var(--teal)}
         <div class="art-caption">MIDDLE SCORE</div>
       </div>
       <h3>A teacher wants the middle score after arranging all scores from lowest to highest.</h3>
-      <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator3" placeholder="median"><button class="check-btn" onclick="checkText('curator3','median','curator3fb','curator')">Check</button><span class="feedback" id="curator3fb"></span></div>
-      <div class="small-note">Clue: “Middle” means median.</div>
+      <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator3" placeholder="type answer"><button class="check-btn" onclick="checkText('curator3','median','curator3fb','curator')">Check</button><span class="feedback" id="curator3fb"></span></div>
+      <div class="small-note">Clue: Decide whether the question is asking for an average, a middle value, or the most common value.</div>
     </div>
 
     <div class="problem-card">
@@ -1987,8 +1987,8 @@ textarea:focus{border-color:var(--teal)}
         <div class="art-caption">OUTLIER MANSION</div>
       </div>
       <h3>House prices include one mansion that is much more expensive than the others. Which measure may better show the middle home price?</h3>
-      <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator4" placeholder="median"><button class="check-btn" onclick="checkText('curator4','median','curator4fb','curator')">Check</button><span class="feedback" id="curator4fb"></span></div>
-      <div class="small-note">Clue: Median is useful when one value is extremely high or low.</div>
+      <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator4" placeholder="type answer"><button class="check-btn" onclick="checkText('curator4','median','curator4fb','curator')">Check</button><span class="feedback" id="curator4fb"></span></div>
+      <div class="small-note">Clue: Think about whether one extreme value would affect the average.</div>
     </div>
   </div>
 
@@ -2030,15 +2030,15 @@ textarea:focus{border-color:var(--teal)}
   </div>
 
   <div class="grid-3">
-    <div class="card"><div class="card-title">Mean</div><p>The average. Add all values and divide by the count.</p></div>
-    <div class="card"><div class="card-title">Median</div><p>The middle value after numbers are ordered.</p></div>
-    <div class="card"><div class="card-title">Mode</div><p>The value that appears most often.</p></div>
+    <div class="card"><div class="card-title">Mean</div><p>Write what this measure tells you.</p></div>
+    <div class="card"><div class="card-title">Median</div><p>Write what this measure tells you.</p></div>
+    <div class="card"><div class="card-title">Mode</div><p>Write what this measure tells you.</p></div>
   </div>
 
   <div class="scenario">
     <h3>Exit Ticket</h3>
     <p>Explain the difference between mean, median, and mode. Give one example of when someone might use each one.</p>
-    <textarea id="exitWriting" placeholder="Mean is... Median is... Mode is... Someone might use mean when..."></textarea>
+    <textarea id="exitWriting" placeholder="Explain each measure in your own words. Give one example of when someone might use each one."></textarea>
     <div class="input-row">
       <button class="check-btn" onclick="completeWriting('exitWriting','exit')">Submit Exit Ticket</button>
       <span class="feedback" id="exitFb"></span>
@@ -2211,7 +2211,7 @@ function checkSort(){
   const isCorrect = answer.every((n,i) => n === correct[i]);
 
   if(isCorrect){
-    result.textContent = "Correct order! Median = 14. Sorting stamp earned.";
+    result.textContent = "Correct order! Sorting stamp earned.";
     result.style.color = "var(--sage)";
     earnStamp("sort");
   }else{
@@ -2375,7 +2375,6 @@ function updateFinalMessage(){
 renderTimer();
 renderStamps();
 resetMatch();
-calculateCustom();
 </script>
 </body>
 </html>
