@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mean, Median & Mode Museum Gallery Walk</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mean, Median &amp; Mode Museum Gallery Walk</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
 
@@ -992,6 +993,118 @@ button{touch-action:manipulation}
 
 .hint-box.visible{display:block;animation:fade .2s ease}
 
+
+
+/* STUDENT WORK SPACES */
+.work-space{
+  margin:.72rem 0 .76rem;
+  border:1.5px dashed #C8D2D8;
+  background:#FBFCFD;
+  border-radius:15px;
+  padding:.75rem;
+}
+
+.work-space.guided{
+  background:linear-gradient(180deg,#FFF9EA,#FFFCF4);
+  border-color:#E5C96F;
+}
+
+.work-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.5rem;
+  color:var(--navy);
+  font-size:.82rem;
+  font-weight:900;
+  margin-bottom:.52rem;
+}
+
+.work-title span{
+  font-family:'Space Mono',monospace;
+  color:var(--muted);
+  font-size:.64rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.step-row{
+  display:grid;
+  grid-template-columns:92px 1fr;
+  gap:.55rem;
+  align-items:center;
+  margin:.45rem 0;
+}
+
+.step-label{
+  background:var(--navy);
+  color:#fff;
+  border-radius:999px;
+  padding:.26rem .5rem;
+  font-family:'Space Mono',monospace;
+  font-size:.63rem;
+  font-weight:800;
+  text-align:center;
+  white-space:nowrap;
+}
+
+.work-line{
+  min-height:34px;
+  border:1.5px solid var(--line);
+  border-radius:10px;
+  background:#fff;
+  padding:.4rem .55rem;
+  color:#8B99A3;
+  font-size:.82rem;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:.22rem;
+}
+
+.work-line.wide{
+  min-height:46px;
+  align-items:flex-start;
+}
+
+.work-textarea{
+  min-height:78px;
+  margin-top:.35rem;
+  background:white;
+  border:1.7px solid var(--line);
+  font-size:.86rem;
+}
+
+.work-textarea.short{
+  min-height:58px;
+}
+
+.tally-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:.45rem;
+  margin-top:.35rem;
+}
+
+.tally-box{
+  min-height:44px;
+  border:1.5px solid var(--line);
+  border-radius:10px;
+  background:#fff;
+  padding:.42rem;
+  color:#8B99A3;
+  font-size:.78rem;
+  font-weight:800;
+}
+
+@media(max-width:640px){
+  .step-row{grid-template-columns:1fr;gap:.25rem}
+  .step-label{text-align:left;display:inline-block;width:max-content}
+  .tally-grid{grid-template-columns:1fr}
+}
+
 /* GAMES */
 
 .game-panel{
@@ -1324,885 +1437,890 @@ textarea:focus{border-color:var(--teal)}
 }
 </style>
 </head>
-
 <body>
 <header class="museum-header">
-  <div class="header-top">
-    <div>
-      <div class="brand-kicker">EDUWONDERLAB DATA MUSEUM</div>
-      <div class="brand-title">Mean, Median &amp; Mode Gallery Walk</div>
-    </div>
-    <div class="header-tools">
-      <div class="pill">⏱️ <span id="timer">30:00</span></div>
-      <div class="pill">🏅 Stamps: <span id="stampCount">0</span>/7</div>
-      <button class="reset-btn" onclick="resetMuseum()">Reset</button>
-    </div>
-  </div>
-
-  <nav class="nav-wrap">
-    <div class="nav-inner">
-      <button class="nav-btn active" onclick="showPanel('entrance',this)">🏛️ Entrance</button>
-      <button class="nav-btn" onclick="showPanel('mean',this)">🖼️ Average Wing</button>
-      <button class="nav-btn" onclick="showPanel('median',this)">🎯 Median Wing</button>
-      <button class="nav-btn" onclick="showPanel('mode',this)">⭐ Mode Wing</button>
-      <button class="nav-btn" onclick="showPanel('games',this)">🎮 Game Gallery</button>
-      <button class="nav-btn" onclick="showPanel('curator',this)">🧩 Curator Lab</button>
-      <button class="nav-btn" onclick="showPanel('finale',this)">🎟️ Exit Ticket</button>
-    </div>
-  </nav>
+<div class="header-top">
+<div>
+<div class="brand-kicker">EDUWONDERLAB DATA MUSEUM</div>
+<div class="brand-title">Mean, Median &amp; Mode Gallery Walk</div>
+</div>
+<div class="header-tools">
+<div class="pill">⏱️ <span id="timer">30:00</span></div>
+<div class="pill">🏅 Stamps: <span id="stampCount">0</span>/7</div>
+<button class="reset-btn" onclick="resetMuseum()">Reset</button>
+</div>
+</div>
+<nav class="nav-wrap">
+<div class="nav-inner">
+<button class="nav-btn active" onclick="showPanel('entrance',this)">🏛️ Entrance</button>
+<button class="nav-btn" onclick="showPanel('mean',this)">🖼️ Average Wing</button>
+<button class="nav-btn" onclick="showPanel('median',this)">🎯 Median Wing</button>
+<button class="nav-btn" onclick="showPanel('mode',this)">⭐ Mode Wing</button>
+<button class="nav-btn" onclick="showPanel('games',this)">🎮 Game Gallery</button>
+<button class="nav-btn" onclick="showPanel('curator',this)">🧩 Curator Lab</button>
+<button class="nav-btn" onclick="showPanel('finale',this)">🎟️ Exit Ticket</button>
+</div>
+</nav>
 </header>
-
 <main class="app">
-
 <!-- ENTRANCE -->
-<section id="panel-entrance" class="panel active">
-  <div class="hero">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-kicker">25–30 Minute Interactive Museum Walk</div>
-        <h1>Welcome to the Museum of Data</h1>
-        <p>
+<section class="panel active" id="panel-entrance">
+<div class="hero">
+<div class="hero-grid">
+<div>
+<div class="hero-kicker">25–30 Minute Interactive Museum Walk</div>
+<h1>Welcome to the Museum of Data</h1>
+<p>
           You are a museum curator studying three famous data exhibits: <strong>mean</strong>,
           <strong>median</strong>, and <strong>mode</strong>. Walk through the museum, inspect the artwork,
           solve the data mysteries, and earn curator stamps.
         </p>
-      </div>
-      <div class="side-card">
-        <div class="side-title">CURATOR MISSION</div>
-        <ul>
-          <li>✅ Study the artwork carefully.</li>
-          <li>✅ Solve the data problems.</li>
-          <li>✅ Explain your thinking.</li>
-          <li>✅ Collect all 7 museum stamps.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-label"><span class="label">Map</span><h2>Gallery Walk Route</h2></div>
-  <div class="map-grid">
-    <div class="map-stop"><div class="map-num">1</div><h3>Entrance Hall</h3><p>Preview the mission and key vocabulary.</p></div>
-    <div class="map-stop"><div class="map-num">2</div><h3>Average Wing</h3><p>Mean as the average of a data set.</p></div>
-    <div class="map-stop"><div class="map-num">3</div><h3>Median Wing</h3><p>Sort data and find the middle.</p></div>
-    <div class="map-stop"><div class="map-num">4</div><h3>Mode Wing</h3><p>Count repeats and find the most common value.</p></div>
-    <div class="map-stop"><div class="map-num">5</div><h3>Game Gallery</h3><p>Sort, match, and answer quick checks.</p></div>
-    <div class="map-stop"><div class="map-num">6</div><h3>Curator Lab</h3><p>Choose the best measure for real situations.</p></div>
-  </div>
-
-  <div class="section-label"><span class="label">Preview</span><h2>Three Main Exhibits</h2></div>
-  <div class="gallery-wall">
-    <div class="exhibit-frame">
-      <span class="tagline">EXHIBIT A</span>
-      <div class="frame-art">
-        <svg viewBox="0 0 320 180">
-          <rect x="35" y="110" width="48" height="30" rx="7" fill="#387F84"/>
-          <rect x="100" y="84" width="48" height="56" rx="7" fill="#387F84"/>
-          <rect x="165" y="58" width="48" height="82" rx="7" fill="#387F84"/>
-          <rect x="230" y="32" width="48" height="108" rx="7" fill="#387F84"/>
-          <line x1="28" y1="86" x2="292" y2="86" stroke="#F2C15B" stroke-width="5" stroke-dasharray="9 7"/>
-          <text x="160" y="165" text-anchor="middle" font-size="16" font-family="Nunito" font-weight="900" fill="#16283B">Mean: Average</text>
-        </svg>
-      </div>
-      <h3>Mean</h3>
-      <p>The average. Add all values, then divide by how many values there are.</p>
-    </div>
-
-    <div class="exhibit-frame">
-      <span class="tagline">EXHIBIT B</span>
-      <div class="frame-art">
-        <svg viewBox="0 0 320 180">
-          <rect x="35" y="86" width="250" height="18" rx="9" fill="#D96B48"/>
-          <circle cx="70" cy="76" r="23" fill="#FDE8DC" stroke="#D96B48" stroke-width="5"/>
-          <circle cx="115" cy="76" r="23" fill="#FDE8DC" stroke="#D96B48" stroke-width="5"/>
-          <circle cx="160" cy="76" r="25" fill="#F2C15B" stroke="#16283B" stroke-width="5"/>
-          <circle cx="205" cy="76" r="23" fill="#FDE8DC" stroke="#D96B48" stroke-width="5"/>
-          <circle cx="250" cy="76" r="23" fill="#FDE8DC" stroke="#D96B48" stroke-width="5"/>
-          <text x="160" y="165" text-anchor="middle" font-size="16" font-family="Nunito" font-weight="900" fill="#16283B">Median: Middle</text>
-        </svg>
-      </div>
-      <h3>Median</h3>
-      <p>The middle number after the values are ordered from least to greatest.</p>
-    </div>
-
-    <div class="exhibit-frame">
-      <span class="tagline">EXHIBIT C</span>
-      <div class="frame-art">
-        <svg viewBox="0 0 320 180">
-          <rect x="48" y="122" width="48" height="18" rx="9" fill="#6B4FA0"/>
-          <rect x="118" y="88" width="48" height="52" rx="9" fill="#6B4FA0"/>
-          <rect x="188" y="50" width="48" height="90" rx="9" fill="#6B4FA0"/>
-          <rect x="258" y="105" width="38" height="35" rx="9" fill="#6B4FA0"/>
-          <path d="M202 36 L213 57 L237 61 L219 77 L224 100 L202 89 L181 100 L186 77 L168 61 L192 57 Z" fill="#F2C15B" stroke="#16283B" stroke-width="3"/>
-          <text x="160" y="165" text-anchor="middle" font-size="16" font-family="Nunito" font-weight="900" fill="#16283B">Mode: Most Often</text>
-        </svg>
-      </div>
-      <h3>Mode</h3>
-      <p>The number or category that appears most often in the data set.</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Museum Passport</div>
-    <p>Student version: visible answers have been removed. Use the check buttons to see whether your answer is correct.</p>
-    <div class="badge-row">
-      <span class="badge" id="badge-mean">🖼️ Average Wing</span>
-      <span class="badge" id="badge-median">🎯 Median Wing</span>
-      <span class="badge" id="badge-mode">⭐ Mode Wing</span>
-      <span class="badge" id="badge-sort">🔢 Sorting</span>
-      <span class="badge" id="badge-match">🧠 Matching</span>
-      <span class="badge" id="badge-curator">🧩 Curator Lab</span>
-      <span class="badge" id="badge-exit">🎟️ Exit Ticket</span>
-    </div>
-  </div>
+</div>
+<div class="side-card">
+<div class="side-title">CURATOR MISSION</div>
+<ul>
+<li>✅ Study the artwork carefully.</li>
+<li>✅ Solve the data problems.</li>
+<li>✅ Explain your thinking.</li>
+<li>✅ Collect all 7 museum stamps.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section-label"><span class="label">Map</span><h2>Gallery Walk Route</h2></div>
+<div class="map-grid">
+<div class="map-stop"><div class="map-num">1</div><h3>Entrance Hall</h3><p>Preview the mission and key vocabulary.</p></div>
+<div class="map-stop"><div class="map-num">2</div><h3>Average Wing</h3><p>Mean as the average of a data set.</p></div>
+<div class="map-stop"><div class="map-num">3</div><h3>Median Wing</h3><p>Sort data and find the middle.</p></div>
+<div class="map-stop"><div class="map-num">4</div><h3>Mode Wing</h3><p>Count repeats and find the most common value.</p></div>
+<div class="map-stop"><div class="map-num">5</div><h3>Game Gallery</h3><p>Sort, match, and answer quick checks.</p></div>
+<div class="map-stop"><div class="map-num">6</div><h3>Curator Lab</h3><p>Choose the best measure for real situations.</p></div>
+</div>
+<div class="section-label"><span class="label">Preview</span><h2>Three Main Exhibits</h2></div>
+<div class="gallery-wall">
+<div class="exhibit-frame">
+<span class="tagline">EXHIBIT A</span>
+<div class="frame-art">
+<svg viewbox="0 0 320 180">
+<rect fill="#387F84" height="30" rx="7" width="48" x="35" y="110"></rect>
+<rect fill="#387F84" height="56" rx="7" width="48" x="100" y="84"></rect>
+<rect fill="#387F84" height="82" rx="7" width="48" x="165" y="58"></rect>
+<rect fill="#387F84" height="108" rx="7" width="48" x="230" y="32"></rect>
+<line stroke="#F2C15B" stroke-dasharray="9 7" stroke-width="5" x1="28" x2="292" y1="86" y2="86"></line>
+<text fill="#16283B" font-family="Nunito" font-size="16" font-weight="900" text-anchor="middle" x="160" y="165">Mean: Average</text>
+</svg>
+</div>
+<h3>Mean</h3>
+<p>The average. Add all values, then divide by how many values there are.</p>
+</div>
+<div class="exhibit-frame">
+<span class="tagline">EXHIBIT B</span>
+<div class="frame-art">
+<svg viewbox="0 0 320 180">
+<rect fill="#D96B48" height="18" rx="9" width="250" x="35" y="86"></rect>
+<circle cx="70" cy="76" fill="#FDE8DC" r="23" stroke="#D96B48" stroke-width="5"></circle>
+<circle cx="115" cy="76" fill="#FDE8DC" r="23" stroke="#D96B48" stroke-width="5"></circle>
+<circle cx="160" cy="76" fill="#F2C15B" r="25" stroke="#16283B" stroke-width="5"></circle>
+<circle cx="205" cy="76" fill="#FDE8DC" r="23" stroke="#D96B48" stroke-width="5"></circle>
+<circle cx="250" cy="76" fill="#FDE8DC" r="23" stroke="#D96B48" stroke-width="5"></circle>
+<text fill="#16283B" font-family="Nunito" font-size="16" font-weight="900" text-anchor="middle" x="160" y="165">Median: Middle</text>
+</svg>
+</div>
+<h3>Median</h3>
+<p>The middle number after the values are ordered from least to greatest.</p>
+</div>
+<div class="exhibit-frame">
+<span class="tagline">EXHIBIT C</span>
+<div class="frame-art">
+<svg viewbox="0 0 320 180">
+<rect fill="#6B4FA0" height="18" rx="9" width="48" x="48" y="122"></rect>
+<rect fill="#6B4FA0" height="52" rx="9" width="48" x="118" y="88"></rect>
+<rect fill="#6B4FA0" height="90" rx="9" width="48" x="188" y="50"></rect>
+<rect fill="#6B4FA0" height="35" rx="9" width="38" x="258" y="105"></rect>
+<path d="M202 36 L213 57 L237 61 L219 77 L224 100 L202 89 L181 100 L186 77 L168 61 L192 57 Z" fill="#F2C15B" stroke="#16283B" stroke-width="3"></path>
+<text fill="#16283B" font-family="Nunito" font-size="16" font-weight="900" text-anchor="middle" x="160" y="165">Mode: Most Often</text>
+</svg>
+</div>
+<h3>Mode</h3>
+<p>The number or category that appears most often in the data set.</p>
+</div>
+</div>
+<div class="card">
+<div class="card-title">Museum Passport</div>
+<p>Student version: visible answers have been removed. Use the check buttons to see whether your answer is correct.</p>
+<div class="badge-row">
+<span class="badge" id="badge-mean">🖼️ Average Wing</span>
+<span class="badge" id="badge-median">🎯 Median Wing</span>
+<span class="badge" id="badge-mode">⭐ Mode Wing</span>
+<span class="badge" id="badge-sort">🔢 Sorting</span>
+<span class="badge" id="badge-match">🧠 Matching</span>
+<span class="badge" id="badge-curator">🧩 Curator Lab</span>
+<span class="badge" id="badge-exit">🎟️ Exit Ticket</span>
+</div>
+</div>
 </section>
-
 <!-- MEAN / AVERAGE WING -->
-<section id="panel-mean" class="panel">
-  <div class="hero" style="background:linear-gradient(135deg,#16283B,#347E83)">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-kicker">Exhibit Wing 1</div>
-        <h1>Mean: The Average Exhibit</h1>
-        <p>
+<section class="panel" id="panel-mean">
+<div class="hero" style="background:linear-gradient(135deg,#16283B,#347E83)">
+<div class="hero-grid">
+<div>
+<div class="hero-kicker">Exhibit Wing 1</div>
+<h1>Mean: The Average Exhibit</h1>
+<p>
           The mean is the <strong>average</strong>. To find it, add all the values together and divide by
           the number of values. The mean gives one balanced value for the entire data set.
         </p>
-      </div>
-      <div class="side-card">
-        <div class="side-title">CURATOR LABEL</div>
-        <ul>
-          <li>➕ Add the values.</li>
-          <li>🔢 Count the values.</li>
-          <li>➗ Divide sum by count.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card key-idea">
-    <div class="card-title">What the artwork is showing</div>
-    <p><strong>Mean = average.</strong> The average can be shown by a line across a graph. That line helps us see the balanced value for the whole data set.</p>
-  </div>
-
-  <div class="section-label"><span class="label">Visual</span><h2>Gem Count Average</h2></div>
-  <div class="card">
-    <div class="average-lab">
-      <div class="jar-row">
-        <div class="jar"><div class="jar-label">2</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span></div></div>
-        <div class="jar"><div class="jar-label">4</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span></div></div>
-        <div class="jar"><div class="jar-label">6</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span></div></div>
-        <div class="jar"><div class="jar-label">8</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span></div></div>
-      </div>
-      <div class="big-arrow">→</div>
-      <div class="jar-row">
-        <div class="jar average"><div class="jar-label">Avg 5</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span></div></div>
-        <div class="jar average"><div class="jar-label">Avg 5</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span></div></div>
-        <div class="jar average"><div class="jar-label">Avg 5</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span></div></div>
-        <div class="jar average"><div class="jar-label">Avg 5</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span></div></div>
-      </div>
-    </div>
-    <div class="math-row">
-      <span class="math-chip">Add the values.</span>
-      <span class="math-chip">Count the values.</span>
-      <span class="math-chip">Divide to find the mean.</span>
-    </div>
-  </div>
-
-  <div class="section-label"><span class="label">Visual</span><h2>Average Line Artwork</h2></div>
-  <div class="card">
-    <p>The dashed gold line marks the average height of the bars.</p>
-    <div class="bar-gallery">
-      <div class="avg-line"><span>Average line</span></div>
-      <div class="bar-column"><div class="bar mean" style="height:34px;">2</div><div class="bar-label">G1</div></div>
-      <div class="bar-column"><div class="bar mean" style="height:68px;">4</div><div class="bar-label">G2</div></div>
-      <div class="bar-column"><div class="bar mean" style="height:102px;">6</div><div class="bar-label">G3</div></div>
-      <div class="bar-column"><div class="bar mean" style="height:136px;">8</div><div class="bar-label">G4</div></div>
-      <div class="bar-column"><div class="bar mean" style="height:170px;">10</div><div class="bar-label">G5</div></div>
-    </div>
-    <div class="small-note">Use the bars to estimate and then calculate the average.</div>
-  </div>
-
-  <div class="section-label"><span class="label">Practice</span><h2>Average Exhibit Problems</h2></div>
-  <div class="practice-grid">
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Average Exhibit 1</div><div class="level">Warm-Up</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <rect x="25" y="62" width="210" height="48" rx="8" fill="#8A5A3C"/>
-          <rect x="38" y="38" width="34" height="60" rx="4" fill="#D96B48"/>
-          <rect x="78" y="28" width="34" height="70" rx="4" fill="#387F84"/>
-          <rect x="118" y="48" width="34" height="50" rx="4" fill="#F2C15B"/>
-          <rect x="158" y="20" width="34" height="78" rx="4" fill="#6B4FA0"/>
-          <rect x="198" y="55" width="26" height="43" rx="4" fill="#5A8A6A"/>
-          <text x="130" y="128" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Books Read</text>
-        </svg>
-        <div class="art-caption">BOOKSHELF ARTIFACT</div>
-      </div>
-      <h3>Number of books read: 3, 7, 5, 9, 1. What is the mean?</h3>
-      <div class="data-row"><span class="data-chip">3</span><span class="data-chip">7</span><span class="data-chip">5</span><span class="data-chip">9</span><span class="data-chip">1</span></div>
-      <button class="show-btn" onclick="toggleHint('hint-m1')">Show Hint</button>
-      <div class="hint-box" id="hint-m1">Add all the values. Count how many values are in the set. Then divide the sum by the count.</div>
-      <div class="input-row"><span class="answer-label">Mean =</span><input class="answer-input" type="number" id="mean1"><button class="check-btn" onclick="checkNumber('mean1',5,'mean1fb','mean')">Check</button><span class="feedback" id="mean1fb"></span></div>
-    </div>
-
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Average Exhibit 2</div><div class="level">Practice</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <rect x="20" y="30" width="220" height="85" rx="14" fill="#DFF2EE" stroke="#387F84" stroke-width="4"/>
-          <line x1="130" y1="30" x2="130" y2="115" stroke="#387F84" stroke-width="3"/>
-          <circle cx="130" cy="72" r="24" fill="none" stroke="#387F84" stroke-width="3"/>
-          <rect x="32" y="52" width="28" height="42" fill="none" stroke="#387F84" stroke-width="3"/>
-          <rect x="200" y="52" width="28" height="42" fill="none" stroke="#387F84" stroke-width="3"/>
-          <circle cx="92" cy="72" r="13" fill="#F2C15B" stroke="#16283B" stroke-width="2"/>
-          <text x="130" y="132" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Soccer Goals</text>
-        </svg>
-        <div class="art-caption">SOCCER SCOREBOARD</div>
-      </div>
-      <h3>Goals scored in 4 games: 2, 6, 4, 8. What is the mean?</h3>
-      <div class="data-row"><span class="data-chip">2</span><span class="data-chip">6</span><span class="data-chip">4</span><span class="data-chip">8</span></div>
-      <button class="show-btn" onclick="toggleHint('hint-m2')">Show Hint</button>
-      <div class="hint-box" id="hint-m2">Add all the values. Count how many values are in the set. Then divide the sum by the count.</div>
-      <div class="input-row"><span class="answer-label">Mean =</span><input class="answer-input" type="number" id="mean2"><button class="check-btn" onclick="checkNumber('mean2',5,'mean2fb','mean')">Check</button><span class="feedback" id="mean2fb"></span></div>
-    </div>
-
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Average Exhibit 3</div><div class="level">More Practice</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <rect x="60" y="18" width="140" height="100" rx="8" fill="#FFFFFF" stroke="#16283B" stroke-width="4"/>
-          <line x1="80" y1="42" x2="180" y2="42" stroke="#D6DBDF" stroke-width="4"/>
-          <line x1="80" y1="62" x2="180" y2="62" stroke="#D6DBDF" stroke-width="4"/>
-          <line x1="80" y1="82" x2="180" y2="82" stroke="#D6DBDF" stroke-width="4"/>
-          <circle cx="198" cy="28" r="20" fill="#F2C15B" stroke="#16283B" stroke-width="3"/>
-          <text x="198" y="33" text-anchor="middle" font-size="16" font-family="Nunito" font-weight="900" fill="#16283B">A</text>
-          <text x="130" y="132" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Quiz Scores</text>
-        </svg>
-        <div class="art-caption">QUIZ PAPER</div>
-      </div>
-      <h3>Quiz scores: 80, 90, 70, 100. What is the mean score?</h3>
-      <div class="data-row"><span class="data-chip">80</span><span class="data-chip">90</span><span class="data-chip">70</span><span class="data-chip">100</span></div>
-      <button class="show-btn" onclick="toggleHint('hint-m3')">Show Hint</button>
-      <div class="hint-box" id="hint-m3">Add all the scores. Then divide by the number of scores.</div>
-      <div class="input-row"><span class="answer-label">Mean =</span><input class="answer-input" type="number" id="mean3"><button class="check-btn" onclick="checkNumber('mean3',85,'mean3fb','mean')">Check</button><span class="feedback" id="mean3fb"></span></div>
-    </div>
-
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Average Exhibit 4</div><div class="level">Challenge</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <rect x="35" y="28" width="190" height="84" rx="12" fill="#FFFFFF" stroke="#D96B48" stroke-width="4"/>
-          <rect x="55" y="50" width="32" height="38" rx="4" fill="#DFF2EE" stroke="#387F84" stroke-width="3"/>
-          <rect x="92" y="40" width="32" height="48" rx="4" fill="#FDE8DC" stroke="#D96B48" stroke-width="3"/>
-          <rect x="129" y="58" width="32" height="30" rx="4" fill="#EDE4F4" stroke="#6B4FA0" stroke-width="3"/>
-          <rect x="166" y="48" width="32" height="40" rx="4" fill="#EAF4EC" stroke="#5A8A6A" stroke-width="3"/>
-          <circle cx="205" cy="42" r="16" fill="#F2C15B" stroke="#16283B" stroke-width="3"/>
-          <text x="205" y="48" text-anchor="middle" font-size="18" font-family="Space Mono" font-weight="900" fill="#16283B">?</text>
-          <text x="130" y="130" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Missing Test Score</text>
-        </svg>
-        <div class="art-caption">GRADE TARGET</div>
-      </div>
-      <h3>A student scored 82, 91, 78, and 85. What 5th score is needed for a mean of 85?</h3>
-      <div class="data-row"><span class="data-chip">82</span><span class="data-chip">91</span><span class="data-chip">78</span><span class="data-chip">85</span><span class="data-chip">?</span></div>
-      <button class="show-btn" onclick="toggleHint('hint-m4')">Show Hint</button>
-      <div class="hint-box" id="hint-m4">Think backward: target mean × number of tests gives the total needed. Compare that total to the current total.</div>
-      <div class="input-row"><span class="answer-label">5th score =</span><input class="answer-input" type="number" id="mean4"><button class="check-btn" onclick="checkNumber('mean4',89,'mean4fb','mean')">Check</button><span class="feedback" id="mean4fb"></span></div>
-    </div>
-  </div>
+</div>
+<div class="side-card">
+<div class="side-title">CURATOR LABEL</div>
+<ul>
+<li>➕ Add the values.</li>
+<li>🔢 Count the values.</li>
+<li>➗ Divide sum by count.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="card key-idea">
+<div class="card-title">What the artwork is showing</div>
+<p><strong>Mean = average.</strong> The average can be shown by a line across a graph. That line helps us see the balanced value for the whole data set.</p>
+</div>
+<div class="section-label"><span class="label">Visual</span><h2>Gem Count Average</h2></div>
+<div class="card">
+<div class="average-lab">
+<div class="jar-row">
+<div class="jar"><div class="jar-label">2</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span></div></div>
+<div class="jar"><div class="jar-label">4</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span></div></div>
+<div class="jar"><div class="jar-label">6</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span></div></div>
+<div class="jar"><div class="jar-label">8</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span></div></div>
+</div>
+<div class="big-arrow">→</div>
+<div class="jar-row">
+<div class="jar average"><div class="jar-label">Avg 5</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span></div></div>
+<div class="jar average"><div class="jar-label">Avg 5</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span></div></div>
+<div class="jar average"><div class="jar-label">Avg 5</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span></div></div>
+<div class="jar average"><div class="jar-label">Avg 5</div><div class="dot-area"><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span><span class="dot mean"></span></div></div>
+</div>
+</div>
+<div class="math-row">
+<span class="math-chip">Add the values.</span>
+<span class="math-chip">Count the values.</span>
+<span class="math-chip">Divide to find the mean.</span>
+</div>
+</div>
+<div class="section-label"><span class="label">Visual</span><h2>Average Line Artwork</h2></div>
+<div class="card">
+<p>The dashed gold line marks the average height of the bars.</p>
+<div class="bar-gallery">
+<div class="avg-line"><span>Average line</span></div>
+<div class="bar-column"><div class="bar mean" style="height:34px;">2</div><div class="bar-label">G1</div></div>
+<div class="bar-column"><div class="bar mean" style="height:68px;">4</div><div class="bar-label">G2</div></div>
+<div class="bar-column"><div class="bar mean" style="height:102px;">6</div><div class="bar-label">G3</div></div>
+<div class="bar-column"><div class="bar mean" style="height:136px;">8</div><div class="bar-label">G4</div></div>
+<div class="bar-column"><div class="bar mean" style="height:170px;">10</div><div class="bar-label">G5</div></div>
+</div>
+<div class="small-note">Use the bars to estimate and then calculate the average.</div>
+</div>
+<div class="section-label"><span class="label">Practice</span><h2>Average Exhibit Problems</h2></div>
+<div class="practice-grid">
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Average Exhibit 1</div><div class="level">Warm-Up</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<rect fill="#8A5A3C" height="48" rx="8" width="210" x="25" y="62"></rect>
+<rect fill="#D96B48" height="60" rx="4" width="34" x="38" y="38"></rect>
+<rect fill="#387F84" height="70" rx="4" width="34" x="78" y="28"></rect>
+<rect fill="#F2C15B" height="50" rx="4" width="34" x="118" y="48"></rect>
+<rect fill="#6B4FA0" height="78" rx="4" width="34" x="158" y="20"></rect>
+<rect fill="#5A8A6A" height="43" rx="4" width="26" x="198" y="55"></rect>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="128">Books Read</text>
+</svg>
+<div class="art-caption">BOOKSHELF ARTIFACT</div>
+</div>
+<h3>Number of books read: 3, 7, 5, 9, 1. What is the mean?</h3>
+<div class="data-row"><span class="data-chip">3</span><span class="data-chip">7</span><span class="data-chip">5</span><span class="data-chip">9</span><span class="data-chip">1</span></div><div class="work-space guided">
+<div class="work-title">Show Your Work <span>Guided Mean Steps</span></div>
+<div class="step-row"><div class="step-label">Step 1</div><div class="work-line">Add: 3 + 7 + 5 + 9 + 1 = ______</div></div>
+<div class="step-row"><div class="step-label">Step 2</div><div class="work-line">Count: There are ______ numbers.</div></div>
+<div class="step-row"><div class="step-label">Step 3</div><div class="work-line">Divide: ______ ÷ ______ = ______</div></div>
+</div>
+<button class="show-btn" onclick="toggleHint('hint-m1')">Show Hint</button>
+<div class="hint-box" id="hint-m1">Add all the values. Count how many values are in the set. Then divide the sum by the count.</div>
+<div class="input-row"><span class="answer-label">Mean =</span><input class="answer-input" id="mean1" type="number"/><button class="check-btn" onclick="checkNumber('mean1',5,'mean1fb','mean')">Check</button><span class="feedback" id="mean1fb"></span></div>
+</div>
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Average Exhibit 2</div><div class="level">Practice</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<rect fill="#DFF2EE" height="85" rx="14" stroke="#387F84" stroke-width="4" width="220" x="20" y="30"></rect>
+<line stroke="#387F84" stroke-width="3" x1="130" x2="130" y1="30" y2="115"></line>
+<circle cx="130" cy="72" fill="none" r="24" stroke="#387F84" stroke-width="3"></circle>
+<rect fill="none" height="42" stroke="#387F84" stroke-width="3" width="28" x="32" y="52"></rect>
+<rect fill="none" height="42" stroke="#387F84" stroke-width="3" width="28" x="200" y="52"></rect>
+<circle cx="92" cy="72" fill="#F2C15B" r="13" stroke="#16283B" stroke-width="2"></circle>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="132">Soccer Goals</text>
+</svg>
+<div class="art-caption">SOCCER SCOREBOARD</div>
+</div>
+<h3>Goals scored in 4 games: 2, 6, 4, 8. What is the mean?</h3>
+<div class="data-row"><span class="data-chip">2</span><span class="data-chip">6</span><span class="data-chip">4</span><span class="data-chip">8</span></div><div class="work-space">
+<div class="work-title">Work Space <span>Add · Count · Divide</span></div>
+<textarea class="work-textarea" placeholder="Show your mean steps here: add the goals, count the games, then divide."></textarea>
+</div>
+<button class="show-btn" onclick="toggleHint('hint-m2')">Show Hint</button>
+<div class="hint-box" id="hint-m2">Add all the values. Count how many values are in the set. Then divide the sum by the count.</div>
+<div class="input-row"><span class="answer-label">Mean =</span><input class="answer-input" id="mean2" type="number"/><button class="check-btn" onclick="checkNumber('mean2',5,'mean2fb','mean')">Check</button><span class="feedback" id="mean2fb"></span></div>
+</div>
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Average Exhibit 3</div><div class="level">More Practice</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<rect fill="#FFFFFF" height="100" rx="8" stroke="#16283B" stroke-width="4" width="140" x="60" y="18"></rect>
+<line stroke="#D6DBDF" stroke-width="4" x1="80" x2="180" y1="42" y2="42"></line>
+<line stroke="#D6DBDF" stroke-width="4" x1="80" x2="180" y1="62" y2="62"></line>
+<line stroke="#D6DBDF" stroke-width="4" x1="80" x2="180" y1="82" y2="82"></line>
+<circle cx="198" cy="28" fill="#F2C15B" r="20" stroke="#16283B" stroke-width="3"></circle>
+<text fill="#16283B" font-family="Nunito" font-size="16" font-weight="900" text-anchor="middle" x="198" y="33">A</text>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="132">Quiz Scores</text>
+</svg>
+<div class="art-caption">QUIZ PAPER</div>
+</div>
+<h3>Quiz scores: 80, 90, 70, 100. What is the mean score?</h3>
+<div class="data-row"><span class="data-chip">80</span><span class="data-chip">90</span><span class="data-chip">70</span><span class="data-chip">100</span></div><div class="work-space">
+<div class="work-title">Work Space <span>Add · Count · Divide</span></div>
+<textarea class="work-textarea" placeholder="Show your mean steps here: add the quiz scores, count the scores, then divide."></textarea>
+</div>
+<button class="show-btn" onclick="toggleHint('hint-m3')">Show Hint</button>
+<div class="hint-box" id="hint-m3">Add all the scores. Then divide by the number of scores.</div>
+<div class="input-row"><span class="answer-label">Mean =</span><input class="answer-input" id="mean3" type="number"/><button class="check-btn" onclick="checkNumber('mean3',85,'mean3fb','mean')">Check</button><span class="feedback" id="mean3fb"></span></div>
+</div>
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Average Exhibit 4</div><div class="level">Challenge</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<rect fill="#FFFFFF" height="84" rx="12" stroke="#D96B48" stroke-width="4" width="190" x="35" y="28"></rect>
+<rect fill="#DFF2EE" height="38" rx="4" stroke="#387F84" stroke-width="3" width="32" x="55" y="50"></rect>
+<rect fill="#FDE8DC" height="48" rx="4" stroke="#D96B48" stroke-width="3" width="32" x="92" y="40"></rect>
+<rect fill="#EDE4F4" height="30" rx="4" stroke="#6B4FA0" stroke-width="3" width="32" x="129" y="58"></rect>
+<rect fill="#EAF4EC" height="40" rx="4" stroke="#5A8A6A" stroke-width="3" width="32" x="166" y="48"></rect>
+<circle cx="205" cy="42" fill="#F2C15B" r="16" stroke="#16283B" stroke-width="3"></circle>
+<text fill="#16283B" font-family="Space Mono" font-size="18" font-weight="900" text-anchor="middle" x="205" y="48">?</text>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="130">Missing Test Score</text>
+</svg>
+<div class="art-caption">GRADE TARGET</div>
+</div>
+<h3>A student scored 82, 91, 78, and 85. What 5th score is needed for a mean of 85?</h3>
+<div class="data-row"><span class="data-chip">82</span><span class="data-chip">91</span><span class="data-chip">78</span><span class="data-chip">85</span><span class="data-chip">?</span></div><div class="work-space">
+<div class="work-title">Work Space <span>Work Backward</span></div>
+<textarea class="work-textarea" placeholder="Show your steps here: target total = mean × number of scores, then subtract the scores you already know."></textarea>
+</div>
+<button class="show-btn" onclick="toggleHint('hint-m4')">Show Hint</button>
+<div class="hint-box" id="hint-m4">Think backward: target mean × number of tests gives the total needed. Compare that total to the current total.</div>
+<div class="input-row"><span class="answer-label">5th score =</span><input class="answer-input" id="mean4" type="number"/><button class="check-btn" onclick="checkNumber('mean4',89,'mean4fb','mean')">Check</button><span class="feedback" id="mean4fb"></span></div>
+</div>
+</div>
 </section>
-
 <!-- MEDIAN -->
-<section id="panel-median" class="panel">
-  <div class="hero" style="background:linear-gradient(135deg,#7A2A10,#D96B48)">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-kicker">Exhibit Wing 2</div>
-        <h1>Median: The Middle Exhibit</h1>
-        <p>The median is the middle value after the numbers are placed in order from least to greatest.</p>
-      </div>
-      <div class="side-card">
-        <div class="side-title">CURATOR LABEL</div>
-        <ul>
-          <li>1️⃣ Order the data.</li>
-          <li>2️⃣ Find the middle.</li>
-          <li>3️⃣ If two middles, average them.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card key-idea median">
-    <div class="card-title">What the artwork is showing</div>
-    <p><strong>Median = middle.</strong> First arrange the data. Then cross off values from both ends until you reach the center.</p>
-  </div>
-
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">Odd Number of Values</div>
-      <p>One number lands in the middle.</p>
-      <div class="number-line">
-        <div class="num-card crossed">3</div><div class="num-card crossed">7</div><div class="num-card center">12</div><div class="num-card crossed">15</div><div class="num-card crossed">20</div>
-      </div>
-      <div class="math-chip">Find the middle value.</div>
-    </div>
-    <div class="card">
-      <div class="card-title">Even Number of Values</div>
-      <p>Two numbers land in the middle. Average those two.</p>
-      <div class="number-line">
-        <div class="num-card crossed">4</div><div class="num-card center">8</div><div class="num-card center">10</div><div class="num-card crossed">14</div>
-      </div>
-      <div class="math-chip">Average the two middle values.</div>
-    </div>
-  </div>
-
-  <div class="section-label"><span class="label">Interactive</span><h2>Click-to-Sort Exhibit</h2></div>
-  <div class="sort-game">
-    <div class="sort-pool">
-      <h3>Click numbers to move them into order</h3>
-      <div class="sort-items" id="sortPool">
-        <button class="sort-item" onclick="moveSortItem(this)">18</button>
-        <button class="sort-item" onclick="moveSortItem(this)">6</button>
-        <button class="sort-item" onclick="moveSortItem(this)">14</button>
-        <button class="sort-item" onclick="moveSortItem(this)">10</button>
-        <button class="sort-item" onclick="moveSortItem(this)">22</button>
-      </div>
-      <div class="small-note">Goal: move the numbers from least to greatest.</div>
-    </div>
-    <div class="drop-zone">
-      <h3>Your ordered data</h3>
-      <div class="sort-items" id="sortAnswer"></div>
-      <button class="check-btn" style="margin-top:.7rem" onclick="checkSort()">Check Order</button>
-      <button class="show-btn" style="margin-top:.7rem" onclick="resetSort()">Reset Sort</button>
-      <div class="sort-result" id="sortResult"></div>
-    </div>
-  </div>
-
-  <div class="section-label"><span class="label">Practice</span><h2>Median Exhibit Problems</h2></div>
-  <div class="practice-grid">
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Median Exhibit 1</div><div class="level">Warm-Up</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <rect x="30" y="70" width="200" height="20" rx="10" fill="#D96B48"/>
-          <circle cx="70" cy="60" r="18" fill="#FDE8DC" stroke="#D96B48" stroke-width="4"/>
-          <circle cx="105" cy="60" r="18" fill="#FDE8DC" stroke="#D96B48" stroke-width="4"/>
-          <circle cx="140" cy="60" r="18" fill="#F2C15B" stroke="#16283B" stroke-width="4"/>
-          <circle cx="175" cy="60" r="18" fill="#FDE8DC" stroke="#D96B48" stroke-width="4"/>
-          <circle cx="210" cy="60" r="18" fill="#FDE8DC" stroke="#D96B48" stroke-width="4"/>
-          <text x="140" y="66" text-anchor="middle" font-size="18" font-family="Space Mono" font-weight="900" fill="#16283B">12</text>
-          <text x="130" y="123" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Club Ages Lineup</text>
-        </svg>
-        <div class="art-caption">MIDDLE OF THE LINE</div>
-      </div>
-      <h3>Ages in a club: 11, 14, 12, 13, 10. What is the median?</h3>
-      <div class="data-row"><span class="data-chip">11</span><span class="data-chip">14</span><span class="data-chip">12</span><span class="data-chip">13</span><span class="data-chip">10</span></div>
-      <button class="show-btn" onclick="toggleHint('hint-med1')">Show Hint</button>
-      <div class="hint-box" id="hint-med1">Put the values in order from least to greatest. Then look for the middle value.</div>
-      <div class="input-row"><span class="answer-label">Median =</span><input class="answer-input" type="number" id="median1"><button class="check-btn" onclick="checkNumber('median1',12,'median1fb','median')">Check</button><span class="feedback" id="median1fb"></span></div>
-    </div>
-
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Median Exhibit 2</div><div class="level">Practice</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <rect x="42" y="22" width="176" height="92" rx="10" fill="#fff" stroke="#D96B48" stroke-width="4"/>
-          <line x1="62" y1="45" x2="198" y2="45" stroke="#D6DBDF" stroke-width="4"/>
-          <line x1="62" y1="65" x2="198" y2="65" stroke="#D6DBDF" stroke-width="4"/>
-          <circle cx="110" cy="66" r="18" fill="#F2C15B" stroke="#16283B" stroke-width="3"/>
-          <circle cx="150" cy="66" r="18" fill="#F2C15B" stroke="#16283B" stroke-width="3"/>
-          <text x="130" y="132" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Two Middle Test Scores</text>
-        </svg>
-        <div class="art-caption">SCORE SHEET</div>
-      </div>
-      <h3>Test scores: 88, 72, 95, 81, 77, 90. What is the median?</h3>
-      <div class="data-row"><span class="data-chip">88</span><span class="data-chip">72</span><span class="data-chip">95</span><span class="data-chip">81</span><span class="data-chip">77</span><span class="data-chip">90</span></div>
-      <button class="show-btn" onclick="toggleHint('hint-med2')">Show Hint</button>
-      <div class="hint-box" id="hint-med2">Put the values in order. Because there are two middle values, average those two middle values.</div>
-      <div class="input-row"><span class="answer-label">Median =</span><input class="answer-input" type="number" step=".1" id="median2"><button class="check-btn" onclick="checkNumber('median2',84.5,'median2fb','median',.1)">Check</button><span class="feedback" id="median2fb"></span></div>
-    </div>
-
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Median Exhibit 3</div><div class="level">More Practice</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <rect x="30" y="100" width="200" height="14" rx="7" fill="#8A5A3C"/>
-          <line x1="60" y1="100" x2="60" y2="72" stroke="#5A8A6A" stroke-width="6"/>
-          <line x1="95" y1="100" x2="95" y2="52" stroke="#5A8A6A" stroke-width="6"/>
-          <line x1="130" y1="100" x2="130" y2="42" stroke="#5A8A6A" stroke-width="6"/>
-          <line x1="165" y1="100" x2="165" y2="58" stroke="#5A8A6A" stroke-width="6"/>
-          <line x1="200" y1="100" x2="200" y2="32" stroke="#5A8A6A" stroke-width="6"/>
-          <circle cx="130" cy="36" r="14" fill="#F2C15B" stroke="#16283B" stroke-width="3"/>
-          <text x="130" y="132" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Plant Heights</text>
-        </svg>
-        <div class="art-caption">GREENHOUSE DATA</div>
-      </div>
-      <h3>Plant heights: 5, 12, 8, 3, 15, 9, 6. What is the median?</h3>
-      <div class="data-row"><span class="data-chip">5</span><span class="data-chip">12</span><span class="data-chip">8</span><span class="data-chip">3</span><span class="data-chip">15</span><span class="data-chip">9</span><span class="data-chip">6</span></div>
-      <button class="show-btn" onclick="toggleHint('hint-med3')">Show Hint</button>
-      <div class="hint-box" id="hint-med3">Put the values in order from least to greatest. Then cross off values from both ends until you reach the middle.</div>
-      <div class="input-row"><span class="answer-label">Median =</span><input class="answer-input" type="number" id="median3"><button class="check-btn" onclick="checkNumber('median3',8,'median3fb','median')">Check</button><span class="feedback" id="median3fb"></span></div>
-    </div>
-
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Median Exhibit 4</div><div class="level">Challenge</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <circle cx="130" cy="62" r="46" fill="#FFF7E0" stroke="#F2C15B" stroke-width="5"/>
-          <line x1="130" y1="62" x2="130" y2="34" stroke="#16283B" stroke-width="5" stroke-linecap="round"/>
-          <line x1="130" y1="62" x2="158" y2="76" stroke="#16283B" stroke-width="5" stroke-linecap="round"/>
-          <circle cx="130" cy="62" r="5" fill="#16283B"/>
-          <rect x="58" y="104" width="144" height="18" rx="9" fill="#D96B48"/>
-          <text x="130" y="132" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Homework Minutes</text>
-        </svg>
-        <div class="art-caption">HOMEWORK CLOCK</div>
-      </div>
-      <h3>Homework minutes: 45, 30, 60, 25, 50, 40. What is the median?</h3>
-      <div class="data-row"><span class="data-chip">45</span><span class="data-chip">30</span><span class="data-chip">60</span><span class="data-chip">25</span><span class="data-chip">50</span><span class="data-chip">40</span></div>
-      <button class="show-btn" onclick="toggleHint('hint-med4')">Show Hint</button>
-      <div class="hint-box" id="hint-med4">Put the values in order. Because there are two middle values, average those two middle values.</div>
-      <div class="input-row"><span class="answer-label">Median =</span><input class="answer-input" type="number" step=".1" id="median4"><button class="check-btn" onclick="checkNumber('median4',42.5,'median4fb','median',.1)">Check</button><span class="feedback" id="median4fb"></span></div>
-    </div>
-  </div>
+<section class="panel" id="panel-median">
+<div class="hero" style="background:linear-gradient(135deg,#7A2A10,#D96B48)">
+<div class="hero-grid">
+<div>
+<div class="hero-kicker">Exhibit Wing 2</div>
+<h1>Median: The Middle Exhibit</h1>
+<p>The median is the middle value after the numbers are placed in order from least to greatest.</p>
+</div>
+<div class="side-card">
+<div class="side-title">CURATOR LABEL</div>
+<ul>
+<li>1️⃣ Order the data.</li>
+<li>2️⃣ Find the middle.</li>
+<li>3️⃣ If two middles, average them.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="card key-idea median">
+<div class="card-title">What the artwork is showing</div>
+<p><strong>Median = middle.</strong> First arrange the data. Then cross off values from both ends until you reach the center.</p>
+</div>
+<div class="grid-2">
+<div class="card">
+<div class="card-title">Odd Number of Values</div>
+<p>One number lands in the middle.</p>
+<div class="number-line">
+<div class="num-card crossed">3</div><div class="num-card crossed">7</div><div class="num-card center">12</div><div class="num-card crossed">15</div><div class="num-card crossed">20</div>
+</div>
+<div class="math-chip">Find the middle value.</div>
+</div>
+<div class="card">
+<div class="card-title">Even Number of Values</div>
+<p>Two numbers land in the middle. Average those two.</p>
+<div class="number-line">
+<div class="num-card crossed">4</div><div class="num-card center">8</div><div class="num-card center">10</div><div class="num-card crossed">14</div>
+</div>
+<div class="math-chip">Average the two middle values.</div>
+</div>
+</div>
+<div class="section-label"><span class="label">Interactive</span><h2>Click-to-Sort Exhibit</h2></div>
+<div class="sort-game">
+<div class="sort-pool">
+<h3>Click numbers to move them into order</h3>
+<div class="sort-items" id="sortPool">
+<button class="sort-item" onclick="moveSortItem(this)">18</button>
+<button class="sort-item" onclick="moveSortItem(this)">6</button>
+<button class="sort-item" onclick="moveSortItem(this)">14</button>
+<button class="sort-item" onclick="moveSortItem(this)">10</button>
+<button class="sort-item" onclick="moveSortItem(this)">22</button>
+</div>
+<div class="small-note">Goal: move the numbers from least to greatest.</div>
+</div>
+<div class="drop-zone">
+<h3>Your ordered data</h3>
+<div class="sort-items" id="sortAnswer"></div>
+<button class="check-btn" onclick="checkSort()" style="margin-top:.7rem">Check Order</button>
+<button class="show-btn" onclick="resetSort()" style="margin-top:.7rem">Reset Sort</button>
+<div class="sort-result" id="sortResult"></div>
+</div>
+</div>
+<div class="section-label"><span class="label">Practice</span><h2>Median Exhibit Problems</h2></div>
+<div class="practice-grid">
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Median Exhibit 1</div><div class="level">Warm-Up</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<rect fill="#D96B48" height="20" rx="10" width="200" x="30" y="70"></rect>
+<circle cx="70" cy="60" fill="#FDE8DC" r="18" stroke="#D96B48" stroke-width="4"></circle>
+<circle cx="105" cy="60" fill="#FDE8DC" r="18" stroke="#D96B48" stroke-width="4"></circle>
+<circle cx="140" cy="60" fill="#F2C15B" r="18" stroke="#16283B" stroke-width="4"></circle>
+<circle cx="175" cy="60" fill="#FDE8DC" r="18" stroke="#D96B48" stroke-width="4"></circle>
+<circle cx="210" cy="60" fill="#FDE8DC" r="18" stroke="#D96B48" stroke-width="4"></circle>
+<text fill="#16283B" font-family="Space Mono" font-size="18" font-weight="900" text-anchor="middle" x="140" y="66">12</text>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="123">Club Ages Lineup</text>
+</svg>
+<div class="art-caption">MIDDLE OF THE LINE</div>
+</div>
+<h3>Ages in a club: 11, 14, 12, 13, 10. What is the median?</h3>
+<div class="data-row"><span class="data-chip">11</span><span class="data-chip">14</span><span class="data-chip">12</span><span class="data-chip">13</span><span class="data-chip">10</span></div><div class="work-space guided">
+<div class="work-title">Show Your Work <span>Guided Median Steps</span></div>
+<div class="step-row"><div class="step-label">Step 1</div><div class="work-line">Order: ______, ______, ______, ______, ______</div></div>
+<div class="step-row"><div class="step-label">Step 2</div><div class="work-line">Cross off from both ends until one number is left.</div></div>
+<div class="step-row"><div class="step-label">Step 3</div><div class="work-line">Middle number = ______</div></div>
+</div>
+<button class="show-btn" onclick="toggleHint('hint-med1')">Show Hint</button>
+<div class="hint-box" id="hint-med1">Put the values in order from least to greatest. Then look for the middle value.</div>
+<div class="input-row"><span class="answer-label">Median =</span><input class="answer-input" id="median1" type="number"/><button class="check-btn" onclick="checkNumber('median1',12,'median1fb','median')">Check</button><span class="feedback" id="median1fb"></span></div>
+</div>
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Median Exhibit 2</div><div class="level">Practice</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<rect fill="#fff" height="92" rx="10" stroke="#D96B48" stroke-width="4" width="176" x="42" y="22"></rect>
+<line stroke="#D6DBDF" stroke-width="4" x1="62" x2="198" y1="45" y2="45"></line>
+<line stroke="#D6DBDF" stroke-width="4" x1="62" x2="198" y1="65" y2="65"></line>
+<circle cx="110" cy="66" fill="#F2C15B" r="18" stroke="#16283B" stroke-width="3"></circle>
+<circle cx="150" cy="66" fill="#F2C15B" r="18" stroke="#16283B" stroke-width="3"></circle>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="132">Two Middle Test Scores</text>
+</svg>
+<div class="art-caption">SCORE SHEET</div>
+</div>
+<h3>Test scores: 88, 72, 95, 81, 77, 90. What is the median?</h3>
+<div class="data-row"><span class="data-chip">88</span><span class="data-chip">72</span><span class="data-chip">95</span><span class="data-chip">81</span><span class="data-chip">77</span><span class="data-chip">90</span></div><div class="work-space">
+<div class="work-title">Work Space <span>Order · Find Middle</span></div>
+<textarea class="work-textarea" placeholder="List the scores from least to greatest. Then show the two middle numbers and average them."></textarea>
+</div>
+<button class="show-btn" onclick="toggleHint('hint-med2')">Show Hint</button>
+<div class="hint-box" id="hint-med2">Put the values in order. Because there are two middle values, average those two middle values.</div>
+<div class="input-row"><span class="answer-label">Median =</span><input class="answer-input" id="median2" step=".1" type="number"/><button class="check-btn" onclick="checkNumber('median2',84.5,'median2fb','median',.1)">Check</button><span class="feedback" id="median2fb"></span></div>
+</div>
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Median Exhibit 3</div><div class="level">More Practice</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<rect fill="#8A5A3C" height="14" rx="7" width="200" x="30" y="100"></rect>
+<line stroke="#5A8A6A" stroke-width="6" x1="60" x2="60" y1="100" y2="72"></line>
+<line stroke="#5A8A6A" stroke-width="6" x1="95" x2="95" y1="100" y2="52"></line>
+<line stroke="#5A8A6A" stroke-width="6" x1="130" x2="130" y1="100" y2="42"></line>
+<line stroke="#5A8A6A" stroke-width="6" x1="165" x2="165" y1="100" y2="58"></line>
+<line stroke="#5A8A6A" stroke-width="6" x1="200" x2="200" y1="100" y2="32"></line>
+<circle cx="130" cy="36" fill="#F2C15B" r="14" stroke="#16283B" stroke-width="3"></circle>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="132">Plant Heights</text>
+</svg>
+<div class="art-caption">GREENHOUSE DATA</div>
+</div>
+<h3>Plant heights: 5, 12, 8, 3, 15, 9, 6. What is the median?</h3>
+<div class="data-row"><span class="data-chip">5</span><span class="data-chip">12</span><span class="data-chip">8</span><span class="data-chip">3</span><span class="data-chip">15</span><span class="data-chip">9</span><span class="data-chip">6</span></div><div class="work-space">
+<div class="work-title">Work Space <span>Order · Find Middle</span></div>
+<textarea class="work-textarea" placeholder="List the plant heights from least to greatest. Then mark the middle value."></textarea>
+</div>
+<button class="show-btn" onclick="toggleHint('hint-med3')">Show Hint</button>
+<div class="hint-box" id="hint-med3">Put the values in order from least to greatest. Then cross off values from both ends until you reach the middle.</div>
+<div class="input-row"><span class="answer-label">Median =</span><input class="answer-input" id="median3" type="number"/><button class="check-btn" onclick="checkNumber('median3',8,'median3fb','median')">Check</button><span class="feedback" id="median3fb"></span></div>
+</div>
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Median Exhibit 4</div><div class="level">Challenge</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<circle cx="130" cy="62" fill="#FFF7E0" r="46" stroke="#F2C15B" stroke-width="5"></circle>
+<line stroke="#16283B" stroke-linecap="round" stroke-width="5" x1="130" x2="130" y1="62" y2="34"></line>
+<line stroke="#16283B" stroke-linecap="round" stroke-width="5" x1="130" x2="158" y1="62" y2="76"></line>
+<circle cx="130" cy="62" fill="#16283B" r="5"></circle>
+<rect fill="#D96B48" height="18" rx="9" width="144" x="58" y="104"></rect>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="132">Homework Minutes</text>
+</svg>
+<div class="art-caption">HOMEWORK CLOCK</div>
+</div>
+<h3>Homework minutes: 45, 30, 60, 25, 50, 40. What is the median?</h3>
+<div class="data-row"><span class="data-chip">45</span><span class="data-chip">30</span><span class="data-chip">60</span><span class="data-chip">25</span><span class="data-chip">50</span><span class="data-chip">40</span></div><div class="work-space">
+<div class="work-title">Work Space <span>Order · Two Middles</span></div>
+<textarea class="work-textarea" placeholder="List the minutes from least to greatest. Then show the two middle numbers and average them."></textarea>
+</div>
+<button class="show-btn" onclick="toggleHint('hint-med4')">Show Hint</button>
+<div class="hint-box" id="hint-med4">Put the values in order. Because there are two middle values, average those two middle values.</div>
+<div class="input-row"><span class="answer-label">Median =</span><input class="answer-input" id="median4" step=".1" type="number"/><button class="check-btn" onclick="checkNumber('median4',42.5,'median4fb','median',.1)">Check</button><span class="feedback" id="median4fb"></span></div>
+</div>
+</div>
 </section>
-
 <!-- MODE -->
-<section id="panel-mode" class="panel">
-  <div class="hero" style="background:linear-gradient(135deg,#352050,#6B4FA0)">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-kicker">Exhibit Wing 3</div>
-        <h1>Mode: The Most-Popular Exhibit</h1>
-        <p>The mode is the value that appears most often. It is like the winner of the data set.</p>
-      </div>
-      <div class="side-card">
-        <div class="side-title">CURATOR LABEL</div>
-        <ul>
-          <li>🔎 Look for repeats.</li>
-          <li>🧮 Count each value.</li>
-          <li>🏆 Highest count wins.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="card key-idea mode">
-    <div class="card-title">What the artwork is showing</div>
-    <p><strong>Mode = most often.</strong> A data set can have one mode, more than one mode, or no mode if nothing repeats more than the others.</p>
-  </div>
-
-  <div class="section-label"><span class="label">Visual</span><h2>Snack Vote Exhibit</h2></div>
-  <div class="vote-wall">
-    <div class="vote-card">
-      <h3>Apple</h3>
-      <div class="snack-art">
-        <svg viewBox="0 0 100 80" aria-hidden="true">
-          <path d="M52 18 C56 8,63 7,67 12" fill="none" stroke="#4F8A46" stroke-width="5" stroke-linecap="round"/>
-          <ellipse cx="62" cy="14" rx="10" ry="5" fill="#71B062" transform="rotate(-20 62 14)"/>
-          <path d="M48 24 C30 19,18 31,18 46 C18 61,29 70,41 70 C48 70,50 66,50 66 C50 66,52 70,59 70 C71 70,82 61,82 46 C82 31,70 19,52 24 Z" fill="#D94B43" stroke="#A52A24" stroke-width="3"/>
-          <path d="M50 26 C45 20,39 20,35 22" fill="none" stroke="#F5A7A0" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="vote-stack"><span class="vote-token">🍎</span><span class="vote-token">🍎</span></div>
-      <p>2 votes</p>
-    </div>
-
-    <div class="vote-card">
-      <h3>Chips</h3>
-      <div class="snack-art">
-        <svg viewBox="0 0 100 80" aria-hidden="true">
-          <path d="M27 18 L73 18 L67 67 L33 67 Z" fill="#F2C15B" stroke="#D09B1E" stroke-width="3"/>
-          <path d="M27 18 L73 18 L69 30 L31 30 Z" fill="#F8D986"/>
-          <circle cx="50" cy="45" r="13" fill="#FFF4C9" stroke="#D09B1E" stroke-width="2"/>
-          <path d="M44 43 C47 39,53 39,56 43" fill="none" stroke="#D09B1E" stroke-width="2"/>
-          <path d="M42 49 C47 52,53 52,58 49" fill="none" stroke="#D09B1E" stroke-width="2"/>
-          <ellipse cx="39" cy="58" rx="8" ry="4.5" fill="#F9E5A2" stroke="#D09B1E" stroke-width="1.5"/>
-          <ellipse cx="50" cy="60" rx="8" ry="4.5" fill="#F9E5A2" stroke="#D09B1E" stroke-width="1.5"/>
-          <ellipse cx="61" cy="57" rx="8" ry="4.5" fill="#F9E5A2" stroke="#D09B1E" stroke-width="1.5"/>
-        </svg>
-      </div>
-      <div class="vote-stack"><span class="vote-token">🥔</span><span class="vote-token">🥔</span><span class="vote-token">🥔</span><span class="vote-token">🥔</span><span class="vote-token">🥔</span></div>
-      <p>Count the votes</p>
-    </div>
-
-    <div class="vote-card">
-      <h3>Cookie</h3>
-      <div class="snack-art">
-        <svg viewBox="0 0 100 80" aria-hidden="true">
-          <circle cx="50" cy="43" r="24" fill="#D7A56B" stroke="#A9763E" stroke-width="3"/>
-          <circle cx="40" cy="34" r="3.5" fill="#6E4A2F"/>
-          <circle cx="58" cy="33" r="3.5" fill="#6E4A2F"/>
-          <circle cx="35" cy="49" r="3.5" fill="#6E4A2F"/>
-          <circle cx="51" cy="46" r="3.5" fill="#6E4A2F"/>
-          <circle cx="61" cy="53" r="3.5" fill="#6E4A2F"/>
-          <circle cx="46" cy="57" r="3.5" fill="#6E4A2F"/>
-        </svg>
-      </div>
-      <div class="vote-stack"><span class="vote-token">🍪</span><span class="vote-token">🍪</span><span class="vote-token">🍪</span></div>
-      <p>3 votes</p>
-    </div>
-
-    <div class="vote-card">
-      <h3>Pretzel</h3>
-      <div class="snack-art">
-        <svg viewBox="0 0 100 80" aria-hidden="true">
-          <path d="M31 53 C21 45,22 32,31 28 C40 24,47 31,50 38 C53 31,60 24,69 28 C78 32,79 45,69 53 C64 57,58 56,54 53 L50 49 L46 53 C42 56,36 57,31 53 Z" fill="none" stroke="#B87935" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="40" cy="41" r="3" fill="#FFF0D3"/>
-          <circle cx="60" cy="41" r="3" fill="#FFF0D3"/>
-          <circle cx="50" cy="56" r="3" fill="#FFF0D3"/>
-        </svg>
-      </div>
-      <div class="vote-stack"><span class="vote-token">🥨</span><span class="vote-token">🥨</span></div>
-      <p>2 votes</p>
-    </div>
-  </div>
-
-  <div class="section-label"><span class="label">Cases</span><h2>Mode Can Look Different</h2></div>
-  <div class="grid-3">
-    <div class="card"><div class="card-title">One Mode</div><p>1, 2, <strong style="color:var(--purple)">3, 3, 3</strong>, 4, 5</p><div class="math-chip">Which value repeats most?</div></div>
-    <div class="card"><div class="card-title">Two Modes</div><p>1, <strong style="color:var(--purple)">2, 2</strong>, 3, <strong style="color:var(--purple)">4, 4</strong>, 5</p><div class="math-chip">Which values tie?</div></div>
-    <div class="card"><div class="card-title">No Mode</div><p>1, 2, 3, 4, 5</p><div class="math-chip">Check for repeats.</div></div>
-  </div>
-
-  <div class="section-label"><span class="label">Practice</span><h2>Mode Exhibit Problems</h2></div>
-  <div class="practice-grid">
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Mode Exhibit 1</div><div class="level">Warm-Up</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <rect x="35" y="48" width="42" height="58" rx="12" fill="#DFF2EE" stroke="#387F84" stroke-width="4"/>
-          <rect x="88" y="32" width="42" height="74" rx="12" fill="#EDE4F4" stroke="#6B4FA0" stroke-width="4"/>
-          <rect x="141" y="58" width="42" height="48" rx="12" fill="#FDE8DC" stroke="#D96B48" stroke-width="4"/>
-          <rect x="194" y="42" width="42" height="64" rx="12" fill="#EAF4EC" stroke="#5A8A6A" stroke-width="4"/>
-          <text x="130" y="132" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Shoe Size Display</text>
-        </svg>
-        <div class="art-caption">SHOE WALL</div>
-      </div>
-      <h3>Shoe sizes: 7, 8, 6, 8, 9, 8, 7, 6, 8. What is the mode?</h3>
-      <div class="data-row"><span class="data-chip">7</span><span class="data-chip">8</span><span class="data-chip">6</span><span class="data-chip">8</span><span class="data-chip">9</span><span class="data-chip">8</span><span class="data-chip">7</span><span class="data-chip">6</span><span class="data-chip">8</span></div>
-      <button class="show-btn" onclick="toggleHint('hint-mode1')">Show Hint</button>
-      <div class="hint-box" id="hint-mode1">Make a tally for each value. The value with the greatest tally is the mode.</div>
-      <div class="input-row"><span class="answer-label">Mode =</span><input class="answer-input" type="number" id="mode1"><button class="check-btn" onclick="checkNumber('mode1',8,'mode1fb','mode')">Check</button><span class="feedback" id="mode1fb"></span></div>
-    </div>
-
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Mode Exhibit 2</div><div class="level">Practice</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <rect x="45" y="92" width="170" height="12" rx="6" fill="#16283B"/>
-          <circle cx="80" cy="70" r="18" fill="#DFF2EE" stroke="#387F84" stroke-width="4"/>
-          <circle cx="130" cy="58" r="22" fill="#F2C15B" stroke="#16283B" stroke-width="4"/>
-          <circle cx="180" cy="70" r="18" fill="#FDE8DC" stroke="#D96B48" stroke-width="4"/>
-          <text x="130" y="132" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Push-Up Counts</text>
-        </svg>
-        <div class="art-caption">FITNESS STATION</div>
-      </div>
-      <h3>Push-ups: 15, 20, 15, 30, 20, 15, 25, 10. What is the mode?</h3>
-      <div class="data-row"><span class="data-chip">15</span><span class="data-chip">20</span><span class="data-chip">15</span><span class="data-chip">30</span><span class="data-chip">20</span><span class="data-chip">15</span><span class="data-chip">25</span><span class="data-chip">10</span></div>
-      <button class="show-btn" onclick="toggleHint('hint-mode2')">Show Hint</button>
-      <div class="hint-box" id="hint-mode2">Make a tally for each value. The value with the greatest tally is the mode.</div>
-      <div class="input-row"><span class="answer-label">Mode =</span><input class="answer-input" type="number" id="mode2"><button class="check-btn" onclick="checkNumber('mode2',15,'mode2fb','mode')">Check</button><span class="feedback" id="mode2fb"></span></div>
-    </div>
-
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Mode Exhibit 3</div><div class="level">Words</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <circle cx="82" cy="62" r="25" fill="#D96B48"/>
-          <circle cx="130" cy="62" r="25" fill="#387F84"/>
-          <circle cx="178" cy="62" r="25" fill="#5A8A6A"/>
-          <rect x="64" y="96" width="132" height="16" rx="8" fill="#16283B"/>
-          <text x="130" y="132" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Color Choices</text>
-        </svg>
-        <div class="art-caption">PAINT PALETTE</div>
-      </div>
-      <h3>Colors: red, blue, red, green, red, blue. What is the mode?</h3>
-      <div class="data-row"><span class="data-chip">red</span><span class="data-chip">blue</span><span class="data-chip">red</span><span class="data-chip">green</span><span class="data-chip">red</span><span class="data-chip">blue</span></div>
-      <button class="show-btn" onclick="toggleHint('hint-mode3')">Show Hint</button>
-      <div class="hint-box" id="hint-mode3">Count how many times each color appears. The color with the greatest count is the mode.</div>
-      <div class="input-row"><span class="answer-label">Mode =</span><input class="answer-input" type="text" id="mode3"><button class="check-btn" onclick="checkText('mode3','red','mode3fb','mode')">Check</button><span class="feedback" id="mode3fb"></span></div>
-    </div>
-
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Mode Exhibit 4</div><div class="level">No Mode</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <rect x="45" y="30" width="170" height="86" rx="10" fill="#fff" stroke="#16283B" stroke-width="4"/>
-          <line x1="70" y1="50" x2="190" y2="50" stroke="#D6DBDF" stroke-width="4"/>
-          <line x1="70" y1="70" x2="190" y2="70" stroke="#D6DBDF" stroke-width="4"/>
-          <line x1="70" y1="90" x2="190" y2="90" stroke="#D6DBDF" stroke-width="4"/>
-          <circle cx="205" cy="36" r="18" fill="#F2C15B" stroke="#16283B" stroke-width="3"/>
-          <text x="205" y="42" text-anchor="middle" font-size="18" font-family="Space Mono" font-weight="900" fill="#16283B">?</text>
-          <text x="130" y="132" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">No Repeated Score</text>
-        </svg>
-        <div class="art-caption">UNIQUE SCORES</div>
-      </div>
-      <h3>Quiz scores: 91, 83, 77, 95, 88. Does this data set have a mode?</h3>
-      <div class="data-row"><span class="data-chip">91</span><span class="data-chip">83</span><span class="data-chip">77</span><span class="data-chip">95</span><span class="data-chip">88</span></div>
-      <button class="show-btn" onclick="toggleHint('hint-mode4')">Show Hint</button>
-      <div class="hint-box" id="hint-mode4">Check whether any value repeats more than the others. If nothing repeats, there may be no mode.</div>
-      <div class="input-row"><span class="answer-label">Answer =</span><input class="answer-input" type="text" id="mode4" placeholder="no mode"><button class="check-btn" onclick="checkText('mode4','no mode','mode4fb','mode')">Check</button><span class="feedback" id="mode4fb"></span></div>
-    </div>
-  </div>
+<section class="panel" id="panel-mode">
+<div class="hero" style="background:linear-gradient(135deg,#352050,#6B4FA0)">
+<div class="hero-grid">
+<div>
+<div class="hero-kicker">Exhibit Wing 3</div>
+<h1>Mode: The Most-Popular Exhibit</h1>
+<p>The mode is the value that appears most often. It is like the winner of the data set.</p>
+</div>
+<div class="side-card">
+<div class="side-title">CURATOR LABEL</div>
+<ul>
+<li>🔎 Look for repeats.</li>
+<li>🧮 Count each value.</li>
+<li>🏆 Highest count wins.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="card key-idea mode">
+<div class="card-title">What the artwork is showing</div>
+<p><strong>Mode = most often.</strong> A data set can have one mode, more than one mode, or no mode if nothing repeats more than the others.</p>
+</div>
+<div class="section-label"><span class="label">Visual</span><h2>Snack Vote Exhibit</h2></div>
+<div class="vote-wall">
+<div class="vote-card">
+<h3>Apple</h3>
+<div class="snack-art">
+<svg aria-hidden="true" viewbox="0 0 100 80">
+<path d="M52 18 C56 8,63 7,67 12" fill="none" stroke="#4F8A46" stroke-linecap="round" stroke-width="5"></path>
+<ellipse cx="62" cy="14" fill="#71B062" rx="10" ry="5" transform="rotate(-20 62 14)"></ellipse>
+<path d="M48 24 C30 19,18 31,18 46 C18 61,29 70,41 70 C48 70,50 66,50 66 C50 66,52 70,59 70 C71 70,82 61,82 46 C82 31,70 19,52 24 Z" fill="#D94B43" stroke="#A52A24" stroke-width="3"></path>
+<path d="M50 26 C45 20,39 20,35 22" fill="none" stroke="#F5A7A0" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<div class="vote-stack"><span class="vote-token">🍎</span><span class="vote-token">🍎</span></div>
+<p>2 votes</p>
+</div>
+<div class="vote-card">
+<h3>Chips</h3>
+<div class="snack-art">
+<svg aria-hidden="true" viewbox="0 0 100 80">
+<path d="M27 18 L73 18 L67 67 L33 67 Z" fill="#F2C15B" stroke="#D09B1E" stroke-width="3"></path>
+<path d="M27 18 L73 18 L69 30 L31 30 Z" fill="#F8D986"></path>
+<circle cx="50" cy="45" fill="#FFF4C9" r="13" stroke="#D09B1E" stroke-width="2"></circle>
+<path d="M44 43 C47 39,53 39,56 43" fill="none" stroke="#D09B1E" stroke-width="2"></path>
+<path d="M42 49 C47 52,53 52,58 49" fill="none" stroke="#D09B1E" stroke-width="2"></path>
+<ellipse cx="39" cy="58" fill="#F9E5A2" rx="8" ry="4.5" stroke="#D09B1E" stroke-width="1.5"></ellipse>
+<ellipse cx="50" cy="60" fill="#F9E5A2" rx="8" ry="4.5" stroke="#D09B1E" stroke-width="1.5"></ellipse>
+<ellipse cx="61" cy="57" fill="#F9E5A2" rx="8" ry="4.5" stroke="#D09B1E" stroke-width="1.5"></ellipse>
+</svg>
+</div>
+<div class="vote-stack"><span class="vote-token">🥔</span><span class="vote-token">🥔</span><span class="vote-token">🥔</span><span class="vote-token">🥔</span><span class="vote-token">🥔</span></div>
+<p>Count the votes</p>
+</div>
+<div class="vote-card">
+<h3>Cookie</h3>
+<div class="snack-art">
+<svg aria-hidden="true" viewbox="0 0 100 80">
+<circle cx="50" cy="43" fill="#D7A56B" r="24" stroke="#A9763E" stroke-width="3"></circle>
+<circle cx="40" cy="34" fill="#6E4A2F" r="3.5"></circle>
+<circle cx="58" cy="33" fill="#6E4A2F" r="3.5"></circle>
+<circle cx="35" cy="49" fill="#6E4A2F" r="3.5"></circle>
+<circle cx="51" cy="46" fill="#6E4A2F" r="3.5"></circle>
+<circle cx="61" cy="53" fill="#6E4A2F" r="3.5"></circle>
+<circle cx="46" cy="57" fill="#6E4A2F" r="3.5"></circle>
+</svg>
+</div>
+<div class="vote-stack"><span class="vote-token">🍪</span><span class="vote-token">🍪</span><span class="vote-token">🍪</span></div>
+<p>3 votes</p>
+</div>
+<div class="vote-card">
+<h3>Pretzel</h3>
+<div class="snack-art">
+<svg aria-hidden="true" viewbox="0 0 100 80">
+<path d="M31 53 C21 45,22 32,31 28 C40 24,47 31,50 38 C53 31,60 24,69 28 C78 32,79 45,69 53 C64 57,58 56,54 53 L50 49 L46 53 C42 56,36 57,31 53 Z" fill="none" stroke="#B87935" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"></path>
+<circle cx="40" cy="41" fill="#FFF0D3" r="3"></circle>
+<circle cx="60" cy="41" fill="#FFF0D3" r="3"></circle>
+<circle cx="50" cy="56" fill="#FFF0D3" r="3"></circle>
+</svg>
+</div>
+<div class="vote-stack"><span class="vote-token">🥨</span><span class="vote-token">🥨</span></div>
+<p>2 votes</p>
+</div>
+</div>
+<div class="section-label"><span class="label">Cases</span><h2>Mode Can Look Different</h2></div>
+<div class="grid-3">
+<div class="card"><div class="card-title">One Mode</div><p>1, 2, <strong style="color:var(--purple)">3, 3, 3</strong>, 4, 5</p><div class="math-chip">Which value repeats most?</div></div>
+<div class="card"><div class="card-title">Two Modes</div><p>1, <strong style="color:var(--purple)">2, 2</strong>, 3, <strong style="color:var(--purple)">4, 4</strong>, 5</p><div class="math-chip">Which values tie?</div></div>
+<div class="card"><div class="card-title">No Mode</div><p>1, 2, 3, 4, 5</p><div class="math-chip">Check for repeats.</div></div>
+</div>
+<div class="section-label"><span class="label">Practice</span><h2>Mode Exhibit Problems</h2></div>
+<div class="practice-grid">
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Mode Exhibit 1</div><div class="level">Warm-Up</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<rect fill="#DFF2EE" height="58" rx="12" stroke="#387F84" stroke-width="4" width="42" x="35" y="48"></rect>
+<rect fill="#EDE4F4" height="74" rx="12" stroke="#6B4FA0" stroke-width="4" width="42" x="88" y="32"></rect>
+<rect fill="#FDE8DC" height="48" rx="12" stroke="#D96B48" stroke-width="4" width="42" x="141" y="58"></rect>
+<rect fill="#EAF4EC" height="64" rx="12" stroke="#5A8A6A" stroke-width="4" width="42" x="194" y="42"></rect>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="132">Shoe Size Display</text>
+</svg>
+<div class="art-caption">SHOE WALL</div>
+</div>
+<h3>Shoe sizes: 7, 8, 6, 8, 9, 8, 7, 6, 8. What is the mode?</h3>
+<div class="data-row"><span class="data-chip">7</span><span class="data-chip">8</span><span class="data-chip">6</span><span class="data-chip">8</span><span class="data-chip">9</span><span class="data-chip">8</span><span class="data-chip">7</span><span class="data-chip">6</span><span class="data-chip">8</span></div><div class="work-space guided">
+<div class="work-title">Show Your Work <span>Guided Mode Steps</span></div>
+<div class="step-row"><div class="step-label">Step 1</div><div class="work-line wide">Tally each shoe size.</div></div>
+<div class="tally-grid">
+<div class="tally-box">6: ______</div>
+<div class="tally-box">7: ______</div>
+<div class="tally-box">8: ______</div>
+<div class="tally-box">9: ______</div>
+</div>
+<div class="step-row"><div class="step-label">Step 2</div><div class="work-line">Most repeated value = ______</div></div>
+<div class="step-row"><div class="step-label">Step 3</div><div class="work-line">Mode = ______</div></div>
+</div>
+<button class="show-btn" onclick="toggleHint('hint-mode1')">Show Hint</button>
+<div class="hint-box" id="hint-mode1">Make a tally for each value. The value with the greatest tally is the mode.</div>
+<div class="input-row"><span class="answer-label">Mode =</span><input class="answer-input" id="mode1" type="number"/><button class="check-btn" onclick="checkNumber('mode1',8,'mode1fb','mode')">Check</button><span class="feedback" id="mode1fb"></span></div>
+</div>
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Mode Exhibit 2</div><div class="level">Practice</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<rect fill="#16283B" height="12" rx="6" width="170" x="45" y="92"></rect>
+<circle cx="80" cy="70" fill="#DFF2EE" r="18" stroke="#387F84" stroke-width="4"></circle>
+<circle cx="130" cy="58" fill="#F2C15B" r="22" stroke="#16283B" stroke-width="4"></circle>
+<circle cx="180" cy="70" fill="#FDE8DC" r="18" stroke="#D96B48" stroke-width="4"></circle>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="132">Push-Up Counts</text>
+</svg>
+<div class="art-caption">FITNESS STATION</div>
+</div>
+<h3>Push-ups: 15, 20, 15, 30, 20, 15, 25, 10. What is the mode?</h3>
+<div class="data-row"><span class="data-chip">15</span><span class="data-chip">20</span><span class="data-chip">15</span><span class="data-chip">30</span><span class="data-chip">20</span><span class="data-chip">15</span><span class="data-chip">25</span><span class="data-chip">10</span></div><div class="work-space">
+<div class="work-title">Work Space <span>Tally · Most Often</span></div>
+<textarea class="work-textarea" placeholder="Tally or count how many times each number appears. Then choose the number that appears most often."></textarea>
+</div>
+<button class="show-btn" onclick="toggleHint('hint-mode2')">Show Hint</button>
+<div class="hint-box" id="hint-mode2">Make a tally for each value. The value with the greatest tally is the mode.</div>
+<div class="input-row"><span class="answer-label">Mode =</span><input class="answer-input" id="mode2" type="number"/><button class="check-btn" onclick="checkNumber('mode2',15,'mode2fb','mode')">Check</button><span class="feedback" id="mode2fb"></span></div>
+</div>
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Mode Exhibit 3</div><div class="level">Words</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<circle cx="82" cy="62" fill="#D96B48" r="25"></circle>
+<circle cx="130" cy="62" fill="#387F84" r="25"></circle>
+<circle cx="178" cy="62" fill="#5A8A6A" r="25"></circle>
+<rect fill="#16283B" height="16" rx="8" width="132" x="64" y="96"></rect>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="132">Color Choices</text>
+</svg>
+<div class="art-caption">PAINT PALETTE</div>
+</div>
+<h3>Colors: red, blue, red, green, red, blue. What is the mode?</h3>
+<div class="data-row"><span class="data-chip">red</span><span class="data-chip">blue</span><span class="data-chip">red</span><span class="data-chip">green</span><span class="data-chip">red</span><span class="data-chip">blue</span></div><div class="work-space">
+<div class="work-title">Work Space <span>Tally · Most Often</span></div>
+<textarea class="work-textarea" placeholder="Count each color: red, blue, and green. Then choose the color that appears most often."></textarea>
+</div>
+<button class="show-btn" onclick="toggleHint('hint-mode3')">Show Hint</button>
+<div class="hint-box" id="hint-mode3">Count how many times each color appears. The color with the greatest count is the mode.</div>
+<div class="input-row"><span class="answer-label">Mode =</span><input class="answer-input" id="mode3" type="text"/><button class="check-btn" onclick="checkText('mode3','red','mode3fb','mode')">Check</button><span class="feedback" id="mode3fb"></span></div>
+</div>
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Mode Exhibit 4</div><div class="level">No Mode</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<rect fill="#fff" height="86" rx="10" stroke="#16283B" stroke-width="4" width="170" x="45" y="30"></rect>
+<line stroke="#D6DBDF" stroke-width="4" x1="70" x2="190" y1="50" y2="50"></line>
+<line stroke="#D6DBDF" stroke-width="4" x1="70" x2="190" y1="70" y2="70"></line>
+<line stroke="#D6DBDF" stroke-width="4" x1="70" x2="190" y1="90" y2="90"></line>
+<circle cx="205" cy="36" fill="#F2C15B" r="18" stroke="#16283B" stroke-width="3"></circle>
+<text fill="#16283B" font-family="Space Mono" font-size="18" font-weight="900" text-anchor="middle" x="205" y="42">?</text>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="132">No Repeated Score</text>
+</svg>
+<div class="art-caption">UNIQUE SCORES</div>
+</div>
+<h3>Quiz scores: 91, 83, 77, 95, 88. Does this data set have a mode?</h3>
+<div class="data-row"><span class="data-chip">91</span><span class="data-chip">83</span><span class="data-chip">77</span><span class="data-chip">95</span><span class="data-chip">88</span></div><div class="work-space">
+<div class="work-title">Work Space <span>Check Repeats</span></div>
+<textarea class="work-textarea" placeholder="List or tally the scores. Check whether any score repeats more than the others."></textarea>
+</div>
+<button class="show-btn" onclick="toggleHint('hint-mode4')">Show Hint</button>
+<div class="hint-box" id="hint-mode4">Check whether any value repeats more than the others. If nothing repeats, there may be no mode.</div>
+<div class="input-row"><span class="answer-label">Answer =</span><input class="answer-input" id="mode4" placeholder="no mode" type="text"/><button class="check-btn" onclick="checkText('mode4','no mode','mode4fb','mode')">Check</button><span class="feedback" id="mode4fb"></span></div>
+</div>
+</div>
 </section>
-
 <!-- GAME GALLERY -->
-<section id="panel-games" class="panel">
-  <div class="hero" style="background:linear-gradient(135deg,#16283B,#6B4FA0)">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-kicker">Interactive Wing</div>
-        <h1>Game Gallery</h1>
-        <p>Play short museum games to review the difference between mean, median, and mode.</p>
-      </div>
-      <div class="side-card">
-        <div class="side-title">GAME GOALS</div>
-        <ul>
-          <li>🎮 Sort data.</li>
-          <li>🧠 Match concepts.</li>
-          <li>⚡ Choose the best measure.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-label"><span class="label">Game 1</span><h2>Memory Match: Word + Meaning</h2></div>
-  <div class="game-panel">
-    <div class="match-grid" id="matchGrid"></div>
-    <div class="input-row">
-      <button class="show-btn" onclick="resetMatch()">Restart Match Game</button>
-      <span class="feedback" id="matchFeedback"></span>
-    </div>
-  </div>
-
-  <div class="section-label"><span class="label">Game 2</span><h2>Quick Curator Checks</h2></div>
-  <div class="grid-2">
-    <div class="game-panel">
-      <div class="card-title">Which measure is the average?</div>
-      <div class="choice-grid">
-        <button class="choice-btn" onclick="choiceCheck(this,false,'choice1')">Median</button>
-        <button class="choice-btn" onclick="choiceCheck(this,true,'choice1')">Mean</button>
-        <button class="choice-btn" onclick="choiceCheck(this,false,'choice1')">Mode</button>
-        <button class="choice-btn" onclick="choiceCheck(this,false,'choice1')">Range</button>
-      </div>
-      <div class="feedback" id="choice1"></div>
-    </div>
-
-    <div class="game-panel">
-      <div class="card-title">Which measure finds the most common value?</div>
-      <div class="choice-grid">
-        <button class="choice-btn" onclick="choiceCheck(this,false,'choice2')">Mean</button>
-        <button class="choice-btn" onclick="choiceCheck(this,false,'choice2')">Median</button>
-        <button class="choice-btn" onclick="choiceCheck(this,true,'choice2')">Mode</button>
-        <button class="choice-btn" onclick="choiceCheck(this,false,'choice2')">Sum</button>
-      </div>
-      <div class="feedback" id="choice2"></div>
-    </div>
-  </div>
+<section class="panel" id="panel-games">
+<div class="hero" style="background:linear-gradient(135deg,#16283B,#6B4FA0)">
+<div class="hero-grid">
+<div>
+<div class="hero-kicker">Interactive Wing</div>
+<h1>Game Gallery</h1>
+<p>Play short museum games to review the difference between mean, median, and mode.</p>
+</div>
+<div class="side-card">
+<div class="side-title">GAME GOALS</div>
+<ul>
+<li>🎮 Sort data.</li>
+<li>🧠 Match concepts.</li>
+<li>⚡ Choose the best measure.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section-label"><span class="label">Game 1</span><h2>Memory Match: Word + Meaning</h2></div>
+<div class="game-panel">
+<div class="match-grid" id="matchGrid"></div>
+<div class="input-row">
+<button class="show-btn" onclick="resetMatch()">Restart Match Game</button>
+<span class="feedback" id="matchFeedback"></span>
+</div>
+</div>
+<div class="section-label"><span class="label">Game 2</span><h2>Quick Curator Checks</h2></div>
+<div class="grid-2">
+<div class="game-panel">
+<div class="card-title">Which measure is the average?</div>
+<div class="choice-grid">
+<button class="choice-btn" onclick="choiceCheck(this,false,'choice1')">Median</button>
+<button class="choice-btn" onclick="choiceCheck(this,true,'choice1')">Mean</button>
+<button class="choice-btn" onclick="choiceCheck(this,false,'choice1')">Mode</button>
+<button class="choice-btn" onclick="choiceCheck(this,false,'choice1')">Range</button>
+</div>
+<div class="feedback" id="choice1"></div>
+</div>
+<div class="game-panel">
+<div class="card-title">Which measure finds the most common value?</div>
+<div class="choice-grid">
+<button class="choice-btn" onclick="choiceCheck(this,false,'choice2')">Mean</button>
+<button class="choice-btn" onclick="choiceCheck(this,false,'choice2')">Median</button>
+<button class="choice-btn" onclick="choiceCheck(this,true,'choice2')">Mode</button>
+<button class="choice-btn" onclick="choiceCheck(this,false,'choice2')">Sum</button>
+</div>
+<div class="feedback" id="choice2"></div>
+</div>
+</div>
 </section>
-
 <!-- CURATOR -->
-<section id="panel-curator" class="panel">
-  <div class="hero" style="background:linear-gradient(135deg,#16283B,#5A8A6A)">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-kicker">Curator Lab</div>
-        <h1>Choose the Best Measure</h1>
-        <p>Now you decide which measure makes sense for the real-world situation.</p>
-      </div>
-      <div class="side-card">
-        <div class="side-title">CURATOR THINKING</div>
-        <ul>
-          <li>🔎 Read the situation carefully.</li>
-          <li>🧠 Decide what the question is asking for.</li>
-          <li>✍️ Type the measure that fits best.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="practice-grid">
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Curator Choice 1</div><div class="level">Scenario</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <rect x="35" y="30" width="190" height="80" rx="14" fill="#DFF2EE" stroke="#387F84" stroke-width="4"/>
-          <circle cx="80" cy="70" r="16" fill="#F2C15B"/>
-          <circle cx="130" cy="70" r="16" fill="#F2C15B"/>
-          <circle cx="180" cy="70" r="16" fill="#F2C15B"/>
-          <text x="130" y="127" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Points Per Game</text>
-        </svg>
-        <div class="art-caption">COACH DATA</div>
-      </div>
-      <h3>A coach wants to know the typical number of points scored per game across the season.</h3>
-      <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator1" placeholder="type answer"><button class="check-btn" onclick="checkText('curator1','mean','curator1fb','curator')">Check</button><span class="feedback" id="curator1fb"></span></div>
-      <div class="small-note">Clue: Read the situation carefully and decide what kind of information is needed.</div>
-    </div>
-
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Curator Choice 2</div><div class="level">Scenario</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <rect x="50" y="28" width="160" height="86" rx="12" fill="#fff" stroke="#6B4FA0" stroke-width="4"/>
-          <rect x="62" y="56" width="36" height="36" rx="6" fill="#DFF2EE"/>
-          <rect x="112" y="49" width="36" height="43" rx="6" fill="#F2C15B"/>
-          <rect x="162" y="56" width="36" height="36" rx="6" fill="#EDE4F4"/>
-          <text x="130" y="132" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Shirt Sizes Sold</text>
-        </svg>
-        <div class="art-caption">STORE DISPLAY</div>
-      </div>
-      <h3>A store wants to know which shirt size was sold the most.</h3>
-      <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator2" placeholder="type answer"><button class="check-btn" onclick="checkText('curator2','mode','curator2fb','curator')">Check</button><span class="feedback" id="curator2fb"></span></div>
-      <div class="small-note">Clue: Read the situation carefully and decide what kind of information is needed.</div>
-    </div>
-
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Curator Choice 3</div><div class="level">Scenario</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <rect x="28" y="68" width="204" height="18" rx="9" fill="#D96B48"/>
-          <circle cx="75" cy="60" r="17" fill="#FDE8DC" stroke="#D96B48" stroke-width="4"/>
-          <circle cx="112" cy="60" r="17" fill="#FDE8DC" stroke="#D96B48" stroke-width="4"/>
-          <circle cx="149" cy="60" r="17" fill="#F2C15B" stroke="#16283B" stroke-width="4"/>
-          <circle cx="186" cy="60" r="17" fill="#FDE8DC" stroke="#D96B48" stroke-width="4"/>
-          <text x="130" y="127" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Middle Score</text>
-        </svg>
-        <div class="art-caption">MIDDLE SCORE</div>
-      </div>
-      <h3>A teacher wants the middle score after arranging all scores from lowest to highest.</h3>
-      <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" type="text" id="curator3" placeholder="type answer"><button class="check-btn" onclick="checkText('curator3','median','curator3fb','curator')">Check</button><span class="feedback" id="curator3fb"></span></div>
-      <div class="small-note">Clue: Read the situation carefully and decide what kind of information is needed.</div>
-    </div>
-
-    <div class="problem-card">
-      <div class="problem-top"><div class="problem-tag">Curator Choice 4</div><div class="level">Multi-Step Challenge</div></div>
-      <div class="art-box">
-        <svg class="art-svg" viewBox="0 0 260 140">
-          <rect x="45" y="78" width="45" height="36" fill="#DFF2EE" stroke="#387F84" stroke-width="3"/>
-          <polygon points="45,78 68,56 90,78" fill="#387F84"/>
-          <rect x="105" y="68" width="45" height="46" fill="#FDE8DC" stroke="#D96B48" stroke-width="3"/>
-          <polygon points="105,68 128,43 150,68" fill="#D96B48"/>
-          <rect x="165" y="35" width="56" height="79" fill="#EDE4F4" stroke="#6B4FA0" stroke-width="3"/>
-          <polygon points="165,35 193,12 221,35" fill="#6B4FA0"/>
-          <text x="130" y="132" text-anchor="middle" font-size="12" font-family="Nunito" font-weight="900" fill="#16283B">Home Prices</text>
-        </svg>
-        <div class="art-caption">OUTLIER MANSION</div>
-      </div>
-
-      <h3>House prices, in thousands of dollars: 180, 190, 200, 210, 720.</h3>
-      <p class="small-note">First enter the prices on the line from least to greatest. Then calculate the mean, median, and mode before choosing the best measure.</p>
-
-      <div class="curator-number-line">
-        <div class="curator-number-line-title">Step 1 · Put the data on the line</div>
-        <div class="line-input-row">
-          <input class="line-slot" id="line1" inputmode="numeric" aria-label="first ordered value">
-          <span class="line-arrow">→</span>
-          <input class="line-slot" id="line2" inputmode="numeric" aria-label="second ordered value">
-          <span class="line-arrow">→</span>
-          <input class="line-slot" id="line3" inputmode="numeric" aria-label="third ordered value">
-          <span class="line-arrow">→</span>
-          <input class="line-slot" id="line4" inputmode="numeric" aria-label="fourth ordered value">
-          <span class="line-arrow">→</span>
-          <input class="line-slot" id="line5" inputmode="numeric" aria-label="fifth ordered value">
-          <button class="check-btn" onclick="checkCuratorLine()">Check Line</button>
-          <span class="feedback" id="curatorLineFb"></span>
-        </div>
-        <div class="curator-guidance" id="curatorLineHelp">Put the prices from smallest to largest. Start with the lowest price and end with the highest price.</div>
-      </div>
-
-      <div class="curator-calc-grid">
-        <div class="curator-calc-row">
-          <h4>Step 2A · Calculate the mean</h4>
-          <div class="input-row">
-            <span class="answer-label">Mean =</span>
-            <input class="answer-input" type="number" id="curatorMean" step="0.1">
-            <button class="check-btn" onclick="checkCuratorMeasure('mean')">Check Mean</button>
-            <span class="feedback" id="curatorMeanFb"></span>
-          </div>
-          <div class="curator-guidance" id="curatorMeanHelp">To calculate the mean, add all 5 prices. Then divide the total by 5. Keep your answer in thousands of dollars.</div>
-        </div>
-
-        <div class="curator-calc-row">
-          <h4>Step 2B · Calculate the median</h4>
-          <div class="input-row">
-            <span class="answer-label">Median =</span>
-            <input class="answer-input" type="number" id="curatorMedian" step="0.1">
-            <button class="check-btn" onclick="checkCuratorMeasure('median')">Check Median</button>
-            <span class="feedback" id="curatorMedianFb"></span>
-          </div>
-          <div class="curator-guidance" id="curatorMedianHelp">To calculate the median, use your ordered line. There are 5 values, so the median is the value in the center position.</div>
-        </div>
-
-        <div class="curator-calc-row">
-          <h4>Step 2C · Identify the mode</h4>
-          <div class="input-row">
-            <span class="answer-label">Mode =</span>
-            <input class="answer-input" type="text" id="curatorMode" placeholder="type answer">
-            <button class="check-btn" onclick="checkCuratorMeasure('mode')">Check Mode</button>
-            <span class="feedback" id="curatorModeFb"></span>
-          </div>
-          <div class="curator-guidance" id="curatorModeHelp">To identify the mode, tally each price. If no price repeats more than the others, type “no mode.”</div>
-        </div>
-      </div>
-
-      <div class="unlock-box" id="curatorBestBox">
-        <h4>Step 3 · Now choose the best measure</h4>
-        <p class="small-note">One mansion is much more expensive than the other homes. Which measure may better show the middle home price?</p>
-        <div class="input-row">
-          <span class="answer-label">Best measure:</span>
-          <input class="answer-input" type="text" id="curator4" placeholder="type answer">
-          <button class="check-btn" onclick="checkText('curator4','median','curator4fb','curator')">Check</button>
-          <span class="feedback" id="curator4fb"></span>
-        </div>
-        <div class="curator-guidance" id="curatorBestHelp">Think about whether one extreme value changes the average. Then decide which measure better represents the middle home price.</div>
-      </div>
-    </div>
-  </div>
-
+<section class="panel" id="panel-curator">
+<div class="hero" style="background:linear-gradient(135deg,#16283B,#5A8A6A)">
+<div class="hero-grid">
+<div>
+<div class="hero-kicker">Curator Lab</div>
+<h1>Choose the Best Measure</h1>
+<p>Now you decide which measure makes sense for the real-world situation.</p>
+</div>
+<div class="side-card">
+<div class="side-title">CURATOR THINKING</div>
+<ul>
+<li>🔎 Read the situation carefully.</li>
+<li>🧠 Decide what the question is asking for.</li>
+<li>✍️ Type the measure that fits best.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="practice-grid">
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Curator Choice 1</div><div class="level">Scenario</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<rect fill="#DFF2EE" height="80" rx="14" stroke="#387F84" stroke-width="4" width="190" x="35" y="30"></rect>
+<circle cx="80" cy="70" fill="#F2C15B" r="16"></circle>
+<circle cx="130" cy="70" fill="#F2C15B" r="16"></circle>
+<circle cx="180" cy="70" fill="#F2C15B" r="16"></circle>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="127">Points Per Game</text>
+</svg>
+<div class="art-caption">COACH DATA</div>
+</div>
+<h3>A coach wants to know the typical number of points scored per game across the season.</h3><div class="work-space guided">
+<div class="work-title">Show Your Thinking <span>Guided Measure Choice</span></div>
+<div class="step-row"><div class="step-label">Step 1</div><div class="work-line">What is the situation asking for? __________________________</div></div>
+<div class="step-row"><div class="step-label">Step 2</div><div class="work-line">Does it ask for average, middle, or most common? __________________________</div></div>
+<div class="step-row"><div class="step-label">Step 3</div><div class="work-line">Best measure = __________________________</div></div>
+</div>
+<div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" id="curator1" placeholder="type answer" type="text"/><button class="check-btn" onclick="checkText('curator1','mean','curator1fb','curator')">Check</button><span class="feedback" id="curator1fb"></span></div>
+<div class="small-note">Clue: Read the situation carefully and decide what kind of information is needed.</div>
+</div>
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Curator Choice 2</div><div class="level">Scenario</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<rect fill="#fff" height="86" rx="12" stroke="#6B4FA0" stroke-width="4" width="160" x="50" y="28"></rect>
+<rect fill="#DFF2EE" height="36" rx="6" width="36" x="62" y="56"></rect>
+<rect fill="#F2C15B" height="43" rx="6" width="36" x="112" y="49"></rect>
+<rect fill="#EDE4F4" height="36" rx="6" width="36" x="162" y="56"></rect>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="132">Shirt Sizes Sold</text>
+</svg>
+<div class="art-caption">STORE DISPLAY</div>
+</div>
+<h3>A store wants to know which shirt size was sold the most.</h3><div class="work-space">
+<div class="work-title">Work Space <span>Choose the Measure</span></div>
+<textarea class="work-textarea short" placeholder="Underline the clue words in your mind. Does the situation ask for average, middle, or most common?"></textarea>
+</div>
+<div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" id="curator2" placeholder="type answer" type="text"/><button class="check-btn" onclick="checkText('curator2','mode','curator2fb','curator')">Check</button><span class="feedback" id="curator2fb"></span></div>
+<div class="small-note">Clue: Read the situation carefully and decide what kind of information is needed.</div>
+</div>
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Curator Choice 3</div><div class="level">Scenario</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<rect fill="#D96B48" height="18" rx="9" width="204" x="28" y="68"></rect>
+<circle cx="75" cy="60" fill="#FDE8DC" r="17" stroke="#D96B48" stroke-width="4"></circle>
+<circle cx="112" cy="60" fill="#FDE8DC" r="17" stroke="#D96B48" stroke-width="4"></circle>
+<circle cx="149" cy="60" fill="#F2C15B" r="17" stroke="#16283B" stroke-width="4"></circle>
+<circle cx="186" cy="60" fill="#FDE8DC" r="17" stroke="#D96B48" stroke-width="4"></circle>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="127">Middle Score</text>
+</svg>
+<div class="art-caption">MIDDLE SCORE</div>
+</div>
+<h3>A teacher wants the middle score after arranging all scores from lowest to highest.</h3><div class="work-space">
+<div class="work-title">Work Space <span>Choose the Measure</span></div>
+<textarea class="work-textarea short" placeholder="Underline the clue words in your mind. Does the situation ask for average, middle, or most common?"></textarea>
+</div>
+<div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" id="curator3" placeholder="type answer" type="text"/><button class="check-btn" onclick="checkText('curator3','median','curator3fb','curator')">Check</button><span class="feedback" id="curator3fb"></span></div>
+<div class="small-note">Clue: Read the situation carefully and decide what kind of information is needed.</div>
+</div>
+<div class="problem-card">
+<div class="problem-top"><div class="problem-tag">Curator Choice 4</div><div class="level">Multi-Step Challenge</div></div>
+<div class="art-box">
+<svg class="art-svg" viewbox="0 0 260 140">
+<rect fill="#DFF2EE" height="36" stroke="#387F84" stroke-width="3" width="45" x="45" y="78"></rect>
+<polygon fill="#387F84" points="45,78 68,56 90,78"></polygon>
+<rect fill="#FDE8DC" height="46" stroke="#D96B48" stroke-width="3" width="45" x="105" y="68"></rect>
+<polygon fill="#D96B48" points="105,68 128,43 150,68"></polygon>
+<rect fill="#EDE4F4" height="79" stroke="#6B4FA0" stroke-width="3" width="56" x="165" y="35"></rect>
+<polygon fill="#6B4FA0" points="165,35 193,12 221,35"></polygon>
+<text fill="#16283B" font-family="Nunito" font-size="12" font-weight="900" text-anchor="middle" x="130" y="132">Home Prices</text>
+</svg>
+<div class="art-caption">OUTLIER MANSION</div>
+</div>
+<h3>House prices, in thousands of dollars: 180, 190, 200, 210, 720.</h3>
+<p class="small-note">First enter the prices on the line from least to greatest. Then calculate the mean, median, and mode before choosing the best measure.</p><div class="work-space">
+<div class="work-title">Scratch Work <span>List · Calculate · Decide</span></div>
+<textarea class="work-textarea" placeholder="Use this space to list the prices, add for the mean, identify the middle price, check repeats, and explain why the best measure makes sense."></textarea>
+</div>
+<div class="curator-number-line">
+<div class="curator-number-line-title">Step 1 · Put the data on the line</div>
+<div class="line-input-row">
+<input aria-label="first ordered value" class="line-slot" id="line1" inputmode="numeric"/>
+<span class="line-arrow">→</span>
+<input aria-label="second ordered value" class="line-slot" id="line2" inputmode="numeric"/>
+<span class="line-arrow">→</span>
+<input aria-label="third ordered value" class="line-slot" id="line3" inputmode="numeric"/>
+<span class="line-arrow">→</span>
+<input aria-label="fourth ordered value" class="line-slot" id="line4" inputmode="numeric"/>
+<span class="line-arrow">→</span>
+<input aria-label="fifth ordered value" class="line-slot" id="line5" inputmode="numeric"/>
+<button class="check-btn" onclick="checkCuratorLine()">Check Line</button>
+<span class="feedback" id="curatorLineFb"></span>
+</div>
+<div class="curator-guidance" id="curatorLineHelp">Put the prices from smallest to largest. Start with the lowest price and end with the highest price.</div>
+</div>
+<div class="curator-calc-grid">
+<div class="curator-calc-row">
+<h4>Step 2A · Calculate the mean</h4>
+<div class="input-row">
+<span class="answer-label">Mean =</span>
+<input class="answer-input" id="curatorMean" step="0.1" type="number"/>
+<button class="check-btn" onclick="checkCuratorMeasure('mean')">Check Mean</button>
+<span class="feedback" id="curatorMeanFb"></span>
+</div>
+<div class="curator-guidance" id="curatorMeanHelp">To calculate the mean, add all 5 prices. Then divide the total by 5. Keep your answer in thousands of dollars.</div>
+</div>
+<div class="curator-calc-row">
+<h4>Step 2B · Calculate the median</h4>
+<div class="input-row">
+<span class="answer-label">Median =</span>
+<input class="answer-input" id="curatorMedian" step="0.1" type="number"/>
+<button class="check-btn" onclick="checkCuratorMeasure('median')">Check Median</button>
+<span class="feedback" id="curatorMedianFb"></span>
+</div>
+<div class="curator-guidance" id="curatorMedianHelp">To calculate the median, use your ordered line. There are 5 values, so the median is the value in the center position.</div>
+</div>
+<div class="curator-calc-row">
+<h4>Step 2C · Identify the mode</h4>
+<div class="input-row">
+<span class="answer-label">Mode =</span>
+<input class="answer-input" id="curatorMode" placeholder="type answer" type="text"/>
+<button class="check-btn" onclick="checkCuratorMeasure('mode')">Check Mode</button>
+<span class="feedback" id="curatorModeFb"></span>
+</div>
+<div class="curator-guidance" id="curatorModeHelp">To identify the mode, tally each price. If no price repeats more than the others, type “no mode.”</div>
+</div>
+</div>
+<div class="unlock-box" id="curatorBestBox">
+<h4>Step 3 · Now choose the best measure</h4>
+<p class="small-note">One mansion is much more expensive than the other homes. Which measure may better show the middle home price?</p>
+<div class="input-row">
+<span class="answer-label">Best measure:</span>
+<input class="answer-input" id="curator4" placeholder="type answer" type="text"/>
+<button class="check-btn" onclick="checkText('curator4','median','curator4fb','curator')">Check</button>
+<span class="feedback" id="curator4fb"></span>
+</div>
+<div class="curator-guidance" id="curatorBestHelp">Think about whether one extreme value changes the average. Then decide which measure better represents the middle home price.</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- FINALE -->
-<section id="panel-finale" class="panel">
-  <div class="hero" style="background:linear-gradient(135deg,#16283B,#6B4FA0)">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-kicker">Final Stop</div>
-        <h1>Museum Exit Ticket</h1>
-        <p>Complete the final reflection to leave the museum as a certified Data Curator.</p>
-      </div>
-      <div class="side-card">
-        <div class="side-title">SUCCESS CRITERIA</div>
-        <ul>
-          <li>✅ Explain each measure.</li>
-          <li>✅ Choose the correct measure.</li>
-          <li>✅ Use math vocabulary.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="grid-3">
-    <div class="card"><div class="card-title">Mean</div><p>Write what this measure tells you.</p></div>
-    <div class="card"><div class="card-title">Median</div><p>Write what this measure tells you.</p></div>
-    <div class="card"><div class="card-title">Mode</div><p>Write what this measure tells you.</p></div>
-  </div>
-
-  <div class="scenario">
-    <h3>Exit Ticket</h3>
-    <p>Explain the difference between mean, median, and mode. Give one example of when someone might use each one.</p>
-    <textarea id="exitWriting" placeholder="Explain each measure in your own words. Give one example of when someone might use each one."></textarea>
-    <div class="input-row">
-      <button class="check-btn" onclick="completeWriting('exitWriting','exit')">Submit Exit Ticket</button>
-      <span class="feedback" id="exitFb"></span>
-    </div>
-  </div>
-
-  <div class="final-score">
-    <h2>🏛️ Data Curator Status</h2>
-    <p id="finalMessage">Collect stamps throughout the museum. Your progress will show here.</p>
-  </div>
+<section class="panel" id="panel-finale">
+<div class="hero" style="background:linear-gradient(135deg,#16283B,#6B4FA0)">
+<div class="hero-grid">
+<div>
+<div class="hero-kicker">Final Stop</div>
+<h1>Museum Exit Ticket</h1>
+<p>Complete the final reflection to leave the museum as a certified Data Curator.</p>
+</div>
+<div class="side-card">
+<div class="side-title">SUCCESS CRITERIA</div>
+<ul>
+<li>✅ Explain each measure.</li>
+<li>✅ Choose the correct measure.</li>
+<li>✅ Use math vocabulary.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="grid-3">
+<div class="card"><div class="card-title">Mean</div><p>Write what this measure tells you.</p></div>
+<div class="card"><div class="card-title">Median</div><p>Write what this measure tells you.</p></div>
+<div class="card"><div class="card-title">Mode</div><p>Write what this measure tells you.</p></div>
+</div>
+<div class="scenario">
+<h3>Exit Ticket</h3>
+<p>Explain the difference between mean, median, and mode. Give one example of when someone might use each one.</p>
+<textarea id="exitWriting" placeholder="Explain each measure in your own words. Give one example of when someone might use each one."></textarea>
+<div class="input-row">
+<button class="check-btn" onclick="completeWriting('exitWriting','exit')">Submit Exit Ticket</button>
+<span class="feedback" id="exitFb"></span>
+</div>
+</div>
+<div class="final-score">
+<h2>🏛️ Data Curator Status</h2>
+<p id="finalMessage">Collect stamps throughout the museum. Your progress will show here.</p>
+</div>
 </section>
 </main>
-
 <script>
 let stamps = JSON.parse(localStorage.getItem("mmmMuseumStampsV3") || "{}");
 let secondsLeft = Number(localStorage.getItem("mmmMuseumTimeV3") || 1800);
