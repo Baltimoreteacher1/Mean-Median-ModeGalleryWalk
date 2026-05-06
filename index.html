@@ -1069,6 +1069,29 @@ button{touch-action:manipulation}
   align-items:flex-start;
 }
 
+.work-line[contenteditable="true"],
+.tally-box[contenteditable="true"]{
+  cursor:text;
+  outline:none;
+  user-select:text;
+  -webkit-user-select:text;
+}
+
+.work-line[contenteditable="true"]:focus,
+.tally-box[contenteditable="true"]:focus,
+.work-textarea:focus{
+  border-color:var(--teal);
+  box-shadow:0 0 0 3px rgba(52,126,131,.16);
+  background:#fff;
+}
+
+.work-line[contenteditable="true"]:empty:before,
+.tally-box[contenteditable="true"]:empty:before{
+  content:"Type your work here...";
+  color:#8B99A3;
+}
+
+
 .work-textarea{
   min-height:78px;
   margin-top:.35rem;
@@ -1640,9 +1663,9 @@ textarea:focus{border-color:var(--teal)}
 <h3>Number of books read: 3, 7, 5, 9, 1. What is the mean?</h3>
 <div class="data-row"><span class="data-chip">3</span><span class="data-chip">7</span><span class="data-chip">5</span><span class="data-chip">9</span><span class="data-chip">1</span></div><div class="work-space guided">
 <div class="work-title">Show Your Work <span>Guided Mean Steps</span></div>
-<div class="step-row"><div class="step-label">Step 1</div><div class="work-line">Add: 3 + 7 + 5 + 9 + 1 = ______</div></div>
-<div class="step-row"><div class="step-label">Step 2</div><div class="work-line">Count: There are ______ numbers.</div></div>
-<div class="step-row"><div class="step-label">Step 3</div><div class="work-line">Divide: ______ ÷ ______ = ______</div></div>
+<div class="step-row"><div class="step-label">Step 1</div><div class="work-line" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student work line">Add: 3 + 7 + 5 + 9 + 1 = ______</div></div>
+<div class="step-row"><div class="step-label">Step 2</div><div class="work-line" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student work line">Count: There are ______ numbers.</div></div>
+<div class="step-row"><div class="step-label">Step 3</div><div class="work-line" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student work line">Divide: ______ ÷ ______ = ______</div></div>
 </div>
 <button class="show-btn" onclick="toggleHint('hint-m1')">Show Hint</button>
 <div class="hint-box" id="hint-m1">Add all the values. Count how many values are in the set. Then divide the sum by the count.</div>
@@ -1665,7 +1688,7 @@ textarea:focus{border-color:var(--teal)}
 <h3>Goals scored in 4 games: 2, 6, 4, 8. What is the mean?</h3>
 <div class="data-row"><span class="data-chip">2</span><span class="data-chip">6</span><span class="data-chip">4</span><span class="data-chip">8</span></div><div class="work-space">
 <div class="work-title">Work Space <span>Add · Count · Divide</span></div>
-<textarea class="work-textarea" placeholder="Show your mean steps here: add the goals, count the games, then divide."></textarea>
+<textarea class="work-textarea" spellcheck="false" placeholder="Show your mean steps here: add the goals, count the games, then divide."></textarea>
 </div>
 <button class="show-btn" onclick="toggleHint('hint-m2')">Show Hint</button>
 <div class="hint-box" id="hint-m2">Add all the values. Count how many values are in the set. Then divide the sum by the count.</div>
@@ -1688,7 +1711,7 @@ textarea:focus{border-color:var(--teal)}
 <h3>Quiz scores: 80, 90, 70, 100. What is the mean score?</h3>
 <div class="data-row"><span class="data-chip">80</span><span class="data-chip">90</span><span class="data-chip">70</span><span class="data-chip">100</span></div><div class="work-space">
 <div class="work-title">Work Space <span>Add · Count · Divide</span></div>
-<textarea class="work-textarea" placeholder="Show your mean steps here: add the quiz scores, count the scores, then divide."></textarea>
+<textarea class="work-textarea" spellcheck="false" placeholder="Show your mean steps here: add the quiz scores, count the scores, then divide."></textarea>
 </div>
 <button class="show-btn" onclick="toggleHint('hint-m3')">Show Hint</button>
 <div class="hint-box" id="hint-m3">Add all the scores. Then divide by the number of scores.</div>
@@ -1712,7 +1735,7 @@ textarea:focus{border-color:var(--teal)}
 <h3>A student scored 82, 91, 78, and 85. What 5th score is needed for a mean of 85?</h3>
 <div class="data-row"><span class="data-chip">82</span><span class="data-chip">91</span><span class="data-chip">78</span><span class="data-chip">85</span><span class="data-chip">?</span></div><div class="work-space">
 <div class="work-title">Work Space <span>Work Backward</span></div>
-<textarea class="work-textarea" placeholder="Show your steps here: target total = mean × number of scores, then subtract the scores you already know."></textarea>
+<textarea class="work-textarea" spellcheck="false" placeholder="Show your steps here: target total = mean × number of scores, then subtract the scores you already know."></textarea>
 </div>
 <button class="show-btn" onclick="toggleHint('hint-m4')">Show Hint</button>
 <div class="hint-box" id="hint-m4">Think backward: target mean × number of tests gives the total needed. Compare that total to the current total.</div>
@@ -1802,9 +1825,9 @@ textarea:focus{border-color:var(--teal)}
 <h3>Ages in a club: 11, 14, 12, 13, 10. What is the median?</h3>
 <div class="data-row"><span class="data-chip">11</span><span class="data-chip">14</span><span class="data-chip">12</span><span class="data-chip">13</span><span class="data-chip">10</span></div><div class="work-space guided">
 <div class="work-title">Show Your Work <span>Guided Median Steps</span></div>
-<div class="step-row"><div class="step-label">Step 1</div><div class="work-line">Order: ______, ______, ______, ______, ______</div></div>
-<div class="step-row"><div class="step-label">Step 2</div><div class="work-line">Cross off from both ends until one number is left.</div></div>
-<div class="step-row"><div class="step-label">Step 3</div><div class="work-line">Middle number = ______</div></div>
+<div class="step-row"><div class="step-label">Step 1</div><div class="work-line" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student work line">Order: ______, ______, ______, ______, ______</div></div>
+<div class="step-row"><div class="step-label">Step 2</div><div class="work-line" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student work line">Cross off from both ends until one number is left.</div></div>
+<div class="step-row"><div class="step-label">Step 3</div><div class="work-line" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student work line">Middle number = ______</div></div>
 </div>
 <button class="show-btn" onclick="toggleHint('hint-med1')">Show Hint</button>
 <div class="hint-box" id="hint-med1">Put the values in order from least to greatest. Then look for the middle value.</div>
@@ -1826,7 +1849,7 @@ textarea:focus{border-color:var(--teal)}
 <h3>Test scores: 88, 72, 95, 81, 77, 90. What is the median?</h3>
 <div class="data-row"><span class="data-chip">88</span><span class="data-chip">72</span><span class="data-chip">95</span><span class="data-chip">81</span><span class="data-chip">77</span><span class="data-chip">90</span></div><div class="work-space">
 <div class="work-title">Work Space <span>Order · Find Middle</span></div>
-<textarea class="work-textarea" placeholder="List the scores from least to greatest. Then show the two middle numbers and average them."></textarea>
+<textarea class="work-textarea" spellcheck="false" placeholder="List the scores from least to greatest. Then show the two middle numbers and average them."></textarea>
 </div>
 <button class="show-btn" onclick="toggleHint('hint-med2')">Show Hint</button>
 <div class="hint-box" id="hint-med2">Put the values in order. Because there are two middle values, average those two middle values.</div>
@@ -1850,7 +1873,7 @@ textarea:focus{border-color:var(--teal)}
 <h3>Plant heights: 5, 12, 8, 3, 15, 9, 6. What is the median?</h3>
 <div class="data-row"><span class="data-chip">5</span><span class="data-chip">12</span><span class="data-chip">8</span><span class="data-chip">3</span><span class="data-chip">15</span><span class="data-chip">9</span><span class="data-chip">6</span></div><div class="work-space">
 <div class="work-title">Work Space <span>Order · Find Middle</span></div>
-<textarea class="work-textarea" placeholder="List the plant heights from least to greatest. Then mark the middle value."></textarea>
+<textarea class="work-textarea" spellcheck="false" placeholder="List the plant heights from least to greatest. Then mark the middle value."></textarea>
 </div>
 <button class="show-btn" onclick="toggleHint('hint-med3')">Show Hint</button>
 <div class="hint-box" id="hint-med3">Put the values in order from least to greatest. Then cross off values from both ends until you reach the middle.</div>
@@ -1872,7 +1895,7 @@ textarea:focus{border-color:var(--teal)}
 <h3>Homework minutes: 45, 30, 60, 25, 50, 40. What is the median?</h3>
 <div class="data-row"><span class="data-chip">45</span><span class="data-chip">30</span><span class="data-chip">60</span><span class="data-chip">25</span><span class="data-chip">50</span><span class="data-chip">40</span></div><div class="work-space">
 <div class="work-title">Work Space <span>Order · Two Middles</span></div>
-<textarea class="work-textarea" placeholder="List the minutes from least to greatest. Then show the two middle numbers and average them."></textarea>
+<textarea class="work-textarea" spellcheck="false" placeholder="List the minutes from least to greatest. Then show the two middle numbers and average them."></textarea>
 </div>
 <button class="show-btn" onclick="toggleHint('hint-med4')">Show Hint</button>
 <div class="hint-box" id="hint-med4">Put the values in order. Because there are two middle values, average those two middle values.</div>
@@ -1988,15 +2011,15 @@ textarea:focus{border-color:var(--teal)}
 <h3>Shoe sizes: 7, 8, 6, 8, 9, 8, 7, 6, 8. What is the mode?</h3>
 <div class="data-row"><span class="data-chip">7</span><span class="data-chip">8</span><span class="data-chip">6</span><span class="data-chip">8</span><span class="data-chip">9</span><span class="data-chip">8</span><span class="data-chip">7</span><span class="data-chip">6</span><span class="data-chip">8</span></div><div class="work-space guided">
 <div class="work-title">Show Your Work <span>Guided Mode Steps</span></div>
-<div class="step-row"><div class="step-label">Step 1</div><div class="work-line wide">Tally each shoe size.</div></div>
+<div class="step-row"><div class="step-label">Step 1</div><div class="work-line wide" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student work line">Tally each shoe size.</div></div>
 <div class="tally-grid">
-<div class="tally-box">6: ______</div>
-<div class="tally-box">7: ______</div>
-<div class="tally-box">8: ______</div>
-<div class="tally-box">9: ______</div>
+<div class="tally-box" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student tally work box">6: ______</div>
+<div class="tally-box" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student tally work box">7: ______</div>
+<div class="tally-box" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student tally work box">8: ______</div>
+<div class="tally-box" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student tally work box">9: ______</div>
 </div>
-<div class="step-row"><div class="step-label">Step 2</div><div class="work-line">Most repeated value = ______</div></div>
-<div class="step-row"><div class="step-label">Step 3</div><div class="work-line">Mode = ______</div></div>
+<div class="step-row"><div class="step-label">Step 2</div><div class="work-line" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student work line">Most repeated value = ______</div></div>
+<div class="step-row"><div class="step-label">Step 3</div><div class="work-line" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student work line">Mode = ______</div></div>
 </div>
 <button class="show-btn" onclick="toggleHint('hint-mode1')">Show Hint</button>
 <div class="hint-box" id="hint-mode1">Make a tally for each value. The value with the greatest tally is the mode.</div>
@@ -2017,7 +2040,7 @@ textarea:focus{border-color:var(--teal)}
 <h3>Push-ups: 15, 20, 15, 30, 20, 15, 25, 10. What is the mode?</h3>
 <div class="data-row"><span class="data-chip">15</span><span class="data-chip">20</span><span class="data-chip">15</span><span class="data-chip">30</span><span class="data-chip">20</span><span class="data-chip">15</span><span class="data-chip">25</span><span class="data-chip">10</span></div><div class="work-space">
 <div class="work-title">Work Space <span>Tally · Most Often</span></div>
-<textarea class="work-textarea" placeholder="Tally or count how many times each number appears. Then choose the number that appears most often."></textarea>
+<textarea class="work-textarea" spellcheck="false" placeholder="Tally or count how many times each number appears. Then choose the number that appears most often."></textarea>
 </div>
 <button class="show-btn" onclick="toggleHint('hint-mode2')">Show Hint</button>
 <div class="hint-box" id="hint-mode2">Make a tally for each value. The value with the greatest tally is the mode.</div>
@@ -2038,7 +2061,7 @@ textarea:focus{border-color:var(--teal)}
 <h3>Colors: red, blue, red, green, red, blue. What is the mode?</h3>
 <div class="data-row"><span class="data-chip">red</span><span class="data-chip">blue</span><span class="data-chip">red</span><span class="data-chip">green</span><span class="data-chip">red</span><span class="data-chip">blue</span></div><div class="work-space">
 <div class="work-title">Work Space <span>Tally · Most Often</span></div>
-<textarea class="work-textarea" placeholder="Count each color: red, blue, and green. Then choose the color that appears most often."></textarea>
+<textarea class="work-textarea" spellcheck="false" placeholder="Count each color: red, blue, and green. Then choose the color that appears most often."></textarea>
 </div>
 <button class="show-btn" onclick="toggleHint('hint-mode3')">Show Hint</button>
 <div class="hint-box" id="hint-mode3">Count how many times each color appears. The color with the greatest count is the mode.</div>
@@ -2061,7 +2084,7 @@ textarea:focus{border-color:var(--teal)}
 <h3>Quiz scores: 91, 83, 77, 95, 88. Does this data set have a mode?</h3>
 <div class="data-row"><span class="data-chip">91</span><span class="data-chip">83</span><span class="data-chip">77</span><span class="data-chip">95</span><span class="data-chip">88</span></div><div class="work-space">
 <div class="work-title">Work Space <span>Check Repeats</span></div>
-<textarea class="work-textarea" placeholder="List or tally the scores. Check whether any score repeats more than the others."></textarea>
+<textarea class="work-textarea" spellcheck="false" placeholder="List or tally the scores. Check whether any score repeats more than the others."></textarea>
 </div>
 <button class="show-btn" onclick="toggleHint('hint-mode4')">Show Hint</button>
 <div class="hint-box" id="hint-mode4">Check whether any value repeats more than the others. If nothing repeats, there may be no mode.</div>
@@ -2154,9 +2177,9 @@ textarea:focus{border-color:var(--teal)}
 </div>
 <h3>A coach wants to know the typical number of points scored per game across the season.</h3><div class="work-space guided">
 <div class="work-title">Show Your Thinking <span>Guided Measure Choice</span></div>
-<div class="step-row"><div class="step-label">Step 1</div><div class="work-line">What is the situation asking for? __________________________</div></div>
-<div class="step-row"><div class="step-label">Step 2</div><div class="work-line">Does it ask for average, middle, or most common? __________________________</div></div>
-<div class="step-row"><div class="step-label">Step 3</div><div class="work-line">Best measure = __________________________</div></div>
+<div class="step-row"><div class="step-label">Step 1</div><div class="work-line" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student work line">What is the situation asking for? __________________________</div></div>
+<div class="step-row"><div class="step-label">Step 2</div><div class="work-line" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student work line">Does it ask for average, middle, or most common? __________________________</div></div>
+<div class="step-row"><div class="step-label">Step 3</div><div class="work-line" contenteditable="true" spellcheck="false" tabindex="0" aria-label="Student work line">Best measure = __________________________</div></div>
 </div>
 <div class="input-row"><span class="answer-label">Best measure:</span><input class="answer-input" id="curator1" placeholder="type answer" type="text"/><button class="check-btn" onclick="checkText('curator1','mean','curator1fb','curator')">Check</button><span class="feedback" id="curator1fb"></span></div>
 <div class="small-note">Clue: Read the situation carefully and decide what kind of information is needed.</div>
@@ -2217,7 +2240,7 @@ textarea:focus{border-color:var(--teal)}
 <h3>House prices, in thousands of dollars: 180, 190, 200, 210, 720.</h3>
 <p class="small-note">First enter the prices on the line from least to greatest. Then calculate the mean, median, and mode before choosing the best measure.</p><div class="work-space">
 <div class="work-title">Scratch Work <span>List · Calculate · Decide</span></div>
-<textarea class="work-textarea" placeholder="Use this space to list the prices, add for the mean, identify the middle price, check repeats, and explain why the best measure makes sense."></textarea>
+<textarea class="work-textarea" spellcheck="false" placeholder="Use this space to list the prices, add for the mean, identify the middle price, check repeats, and explain why the best measure makes sense."></textarea>
 </div>
 <div class="curator-number-line">
 <div class="curator-number-line-title">Step 1 · Put the data on the line</div>
